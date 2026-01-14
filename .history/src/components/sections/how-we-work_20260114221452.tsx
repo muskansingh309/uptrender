@@ -60,7 +60,7 @@ export default function HowWeWork() {
                   <div className="beige-bg"></div>
                   <div className="woman-image">
                      <Image 
-                    // src="http://localhost:3000/_next/image?url=https%3A%2F%2Fslelguoygbfzlpylpxfs.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Ftest-clones%2F15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app%2Fassets%2Fimages%2Fimages_16.png&w=3840&q=75" */}
+                    src="http://localhost:3000/_next/image?url=https%3A%2F%2Fslelguoygbfzlpylpxfs.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Ftest-clones%2F15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app%2Fassets%2Fimages%2Fimages_16.png&w=3840&q=75" */}
                       src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_4.png"
                       alt="Woman working at desk"
                     width={280}
