@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+// logo replaced with text logo
 import { ChevronDown } from "lucide-react";
 
 const Header = () => {
@@ -41,15 +41,17 @@ const Header = () => {
       <div className="mx-auto w-full max-w-[1860px] px-4 md:px-[30px] flex items-center justify-between relative h-full">
         {/* Logo Section */}
         <div className="nav-logo-wrap z-10 flex items-center min-w-[105px]">
-          <a href="/" className="logo flex items-center pr-4">
-            <Image
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/svgs/logo-dark-1.svg"
-              alt="Resonance"
-              width={105}
-              height={34}
-              className="block"
-              priority
-            />
+          <a href="/" className="logo flex items-center pr-4 gap-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#111111] to-[#333333] rounded-xl flex items-center justify-center shadow-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M17 7H21V11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <span className="text-[18px] md:text-[22px] font-bold tracking-tight text-[#111111]">
+              <span className="bg-gradient-to-r from-[#111111] via-[#333333] to-[#555555] bg-clip-text text-transparent">Up</span>
+              <span className="text-[#111111]">trender</span>
+            </span>
           </a>
         </div>
 

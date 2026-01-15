@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import Image from "next/image";
+// logo replaced with text logo
 import { ArrowUp } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -63,14 +63,16 @@ export default function Footer() {
           <div className="footer-content">
             {/* Brand Column */}
             <div className="footer-brand">
-              <div className="footer-logo">
-                <Image
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/svgs/logo-dark-1.svg"
-                  alt="Reso."
-                  width={105}
-                  height={34}
-                />
-              </div>
+                <div className="footer-logo">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 bg-gradient-to-br from-[#111111] to-[#333333] rounded-lg flex items-center justify-center shadow-sm">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <span className="text-[18px] font-semibold">Uptrender</span>
+                  </div>
+                </div>
               <p className="footer-description">
                 Integer auctor aliquet martor, sed lorem malesuada eros blandit eget. Proin lacinia mortoc id odio vestibulum.
               </p>
