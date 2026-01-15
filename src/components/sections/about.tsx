@@ -95,9 +95,9 @@ const AboutSection: React.FC = () => {
         {/* Header Row */}
         <div className="flex flex-wrap mb-[80px] md:mb-[60px]">
           <div className="w-full md:w-1/2">
-            <span className="caption mb-[10px] md:mb-[15px] about-caption">Our Story</span>
-            <h3 className="section-title text-[32px] md:text-[48px] font-medium leading-[1.1] tracking-[-0.02em] text-[#111111] mb-0 about-title">
-              Better way to create stanning layouts.
+            <span className="caption mb-[10px] md:mb-[15px] about-caption">Our VISION</span>
+            <h3 className="section-title text-[28px] md:text-[30px] font-medium leading-[1.1] tracking-[-0.02em] text-[#111111] mb-0 about-title">
+              A world where AI automation scales every trader's portfolio across global multi-market opportunities.
             </h3>
           </div>
           
@@ -165,19 +165,19 @@ const AboutSection: React.FC = () => {
 
           {/* Mission & Vision Text Blocks */}
           <div className="w-full lg:w-1/2 xl:w-5/12 lg:pl-[120px] xl:pl-[140px] flex flex-col justify-center">
-            <div className="mb-[50px] about-text-block">
+           <div className="mb-[30px] about-text-block">
+              <h4 className="text-[20px] font-medium text-[#111111] mb-[18px]">Our Story</h4>
+              <p className="text-[16px] leading-[1.6] text-[#666666]">
+               Started from trader frustration with multiple platforms. We built India's first AI-powered algo trading dashboard that unites Indian stocks, Forex, and Crypto markets—all in one place, no coding required.
+              </p>
+            </div>
+            <div className="mb-[30px] about-text-block">
               <h4 className="text-[20px] font-medium text-[#111111] mb-[18px]">Our Mission</h4>
               <p className="text-[16px] leading-[1.6] text-[#666666]">
-                We believe that a website is the foundation of a successful online presence, and our goal is to help businesses establish a&nbsp;strong digital presence. Our process begins with understanding your business goals.
+                Democratize algo trading in India: Empower anyone to build, test, and deploy no-code strategies across Indian, Forex, and Crypto markets effortlessly.
               </p>
             </div>
             
-            <div className="about-text-block">
-              <h4 className="text-[20px] font-medium text-[#111111] mb-[15px]">Our Vision</h4>
-              <p className="text-[16px] leading-[1.6] text-[#666666]">
-                We then use this information to create a custom website that not only reflects your brand but also helps you achieve your business objectives. From responsive design to intuitive navigation, we focus on every detail.
-              </p>
-            </div>
           </div>
           
         </div>

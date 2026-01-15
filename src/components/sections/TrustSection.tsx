@@ -1,7 +1,11 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Achievements/Values Section - Dark background carousel
@@ -68,9 +72,49 @@ const values = [
 const TrustSection = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = 4;
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".trust-value-card", {
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+
+      gsap.from(".trust-nav-arrow", {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+
+      gsap.from(".trust-dots", {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        delay: 0.4,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section 
+      ref={sectionRef}
       className="relative py-[100px] md:py-[140px] overflow-hidden"
       style={{
         backgroundColor: '#1a1a1a',
@@ -82,7 +126,7 @@ const TrustSection = () => {
         {/* Navigation Arrows - Left */}
         <button 
           onClick={() => setCurrentPage(p => Math.max(0, p - 1))}
-          className="absolute left-[20px] md:left-[40px] top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors z-10"
+          className="trust-nav-arrow absolute left-[20px] md:left-[40px] top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors z-10"
           aria-label="Previous"
         >
           <ChevronLeft className="w-10 h-10" strokeWidth={1} />
@@ -91,7 +135,7 @@ const TrustSection = () => {
         {/* Navigation Arrows - Right */}
         <button 
           onClick={() => setCurrentPage(p => Math.min(totalPages - 1, p + 1))}
-          className="absolute right-[20px] md:right-[40px] top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors z-10"
+          className="trust-nav-arrow absolute right-[20px] md:right-[40px] top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors z-10"
           aria-label="Next"
         >
           <ChevronRight className="w-10 h-10" strokeWidth={1} />
@@ -100,7 +144,7 @@ const TrustSection = () => {
         {/* Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[40px] md:gap-[60px] text-center px-[40px] md:px-[80px]">
           {values.map((value, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div key={index} className="trust-value-card flex flex-col items-center">
               {/* Icon */}
               <div className="mb-[25px]">
                 {value.icon}
@@ -120,7 +164,7 @@ const TrustSection = () => {
         </div>
 
         {/* Dot Indicators */}
-        <div className="flex justify-center gap-[10px] mt-[60px]">
+        <div className="trust-dots flex justify-center gap-[10px] mt-[60px]">
           {Array.from({ length: totalPages }).map((_, index) => (
             <button
               key={index}

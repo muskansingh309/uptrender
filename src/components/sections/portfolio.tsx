@@ -85,34 +85,60 @@ export default function PortfolioSection() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
+          once: true,
         },
       });
 
-      // gsap.from(".portfolio-filters", {
-      //   y: 30,
-      //   opacity: 0,
-      //   duration: 0.6,
-      //   delay: 0.2,
-      //   scrollTrigger: {
-      //     trigger: sectionRef.current,
-      //     start: "top 80%",
-      //   },
-      // });
+      gsap.from(".portfolio-filters", {
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          once: true,
+        },
+      });
 
-      // gsap.from(".portfolio-item", {
-      //   y: 80,
-      //   opacity: 0,
-      //   duration: 0.8,
-      //   stagger: 0.15,
-      //   scrollTrigger: {
-      //     trigger: ".portfolio-grid",
-      //     start: "top 85%",
-      //   },
-      // });
+      gsap.from(".portfolio-cta", {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".portfolio-cta",
+          start: "top 85%",
+          once: true,
+        },
+      });
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
+
+  useEffect(() => {
+    const items = gsap.utils.toArray<HTMLElement>(".portfolio-item");
+    
+    gsap.fromTo(items, 
+      {
+        y: 80,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
+        clearProps: "all",
+        scrollTrigger: {
+          trigger: ".portfolio-grid",
+          start: "top 85%",
+          once: true,
+        },
+      }
+    );
+  }, [filteredProjects]);
 
   return (
     <section ref={sectionRef} className="bg-white py-[100px] md:py-[120px]" id="portfolio">
@@ -185,7 +211,7 @@ export default function PortfolioSection() {
         </div>
 
         {/* CTA Box with Decorative Element */}
-<div className="relative mt-0 md:mt-32 p-[0.4px] bg-gradient-to-r from-[#d9d9db] via-[#cfcfcf] to-[#bfbfc1] hover:from-[#cfcfcf] hover:via-[#bdbdbf] hover:to-[#a9a9ab] transition-all duration-300 rounded-2xl">
+<div className="portfolio-cta relative mt-0 md:mt-32 p-[0.4px] bg-gradient-to-r from-[#d9d9db] via-[#cfcfcf] to-[#bfbfc1] hover:from-[#cfcfcf] hover:via-[#bdbdbf] hover:to-[#a9a9ab] transition-all duration-300 rounded-2xl">
   
   {/* INNER CONTENT BACKGROUND */}
   <div className="bg-white py-[20px] md:py-[50px] rounded-2xl relative">

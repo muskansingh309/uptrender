@@ -1,7 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Services/Features Section matching the design:
@@ -71,13 +75,52 @@ const features = [
 ];
 
 export default function ServicesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".template-heading", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+
+      gsap.from(".template-feature", {
+        y: 40,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: ".template-heading",
+          start: "top 75%",
+        },
+      });
+
+      gsap.from(".template-images", {
+        x: 80,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".template-images",
+          start: "top 85%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="bg-white py-[100px] md:py-[120px]" id="services">
+    <section ref={sectionRef} className="bg-white py-[100px] md:py-[120px]" id="services">
       <div className="container px-[15px] mx-auto max-w-[1200px]">
         <div className="flex flex-wrap items-center">
           {/* Left Column: Heading and Features Grid */}
           <div className="w-full lg:w-1/2 mb-[60px] lg:mb-0 lg:pr-[60px]">
-            <h2 className="text-[36px] md:text-[48px] leading-[1.1] font-medium text-[#111111] mb-[50px] tracking-[-0.02em]">
+            <h2 className="template-heading text-[36px] md:text-[48px] leading-[1.1] font-medium text-[#111111] mb-[50px] tracking-[-0.02em]">
               Awesome Template<br />
               With Clean Design
             </h2>
@@ -85,7 +128,7 @@ export default function ServicesSection() {
             {/* 2x2 Features Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[40px] gap-y-[40px]">
               {features.map((feature, index) => (
-                <div key={index} className="relative">
+                <div key={index} className="template-feature relative">
                   {/* Dotted border decoration */}
                   <div className="absolute -left-[20px] top-0 bottom-0 w-[1px] border-l border-dotted border-[#e5e5e5] hidden md:block" />
                   <div className="absolute left-0 right-0 -top-[20px] h-[1px] border-t border-dotted border-[#e5e5e5] hidden md:block" />
@@ -111,7 +154,7 @@ export default function ServicesSection() {
 
           {/* Right Column: Image Composition */}
           <div className="w-full lg:w-1/2">
-            <div className="relative h-[500px] md:h-[600px]">
+            <div className="template-images relative h-[500px] md:h-[600px]">
               {/* Main image - Pantone card with rose */}
               <div className="absolute top-[10%] left-[10%] w-[60%] z-20 shadow-xl">
                 <Image

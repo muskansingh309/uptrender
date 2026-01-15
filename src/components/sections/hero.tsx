@@ -112,21 +112,21 @@ export default function HeroSection() {
                   ref={captionRef}
                   className={`${styles.caption} caption`}
                 >
-                  Resonance Creative Studio
+                  Uptrender Trading Platform
                 </span>
                 
                 <h1 
                   ref={headingRef}
                   className={`${styles.heading} font-medium text-primary`}
                 >
-                  Grow your business with a new website.
+                  Automate smarter trades across global markets.
                 </h1>
                 
                 <p 
                   ref={paragraphRef}
                   className={`${styles.paragraph} text-muted-foreground`}
                 >
-                  Resonance is a full-service creative studio creating beautiful digital experiences and products.
+                 India’s First Multi-Market AI-Powered Algo Trading Dashboard for Indian, Forex & Crypto Markets.
                 </p>
                 
                 <div 

@@ -14,44 +14,60 @@ interface ServiceItem {
   number: string;
   description: string;
   image: string;
+  points?: string[];
 }
 
 const services: ServiceItem[] = [
   {
     id: "services-item-1",
-    title: "Brand Strategy",
+    title: "Smart Copy Trading",
     number: "01",
     description:
-      "The core identity reflects consistent associations with the brand whereas the extended identity involves the intricate details of the brand that help generate a constant motif.",
+      "Build Your Copy Trading Network for Indian Stocks, Forex & Crypto From selecting verified master traders to monitoring real-time performance, to scaling passive income—everything for automated copy trading is built right in.",
     image:
       "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_18.png",
+    points: [
+      "Master Account Setup",
+      "Real-Time Trade Mirroring",
+      "Multi-Account Management",
+    ],
   },
   {
     id: "services-item-2",
-    title: "Art Direction",
+    title: "Unified Multi-Market Algo Dashboard",
     number: "02",
     description:
-      "The core identity reflects consistent associations with the brand whereas the extended identity involves the intricate details of the brand that help generate a constant motif.",
+      "India's First Algo Dashboard for Indian, Forex & Crypto Trading From building multi-market strategies to backtesting on unified data, to deploying live algo trades without switching platforms—trade the world from one AI platform.",
     image:
       "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_19.png",
-  },
-  {
-    id: "services-item-3",
-    title: "Creative Design",
-    number: "03",
-    description:
-      "The core identity reflects consistent associations with the brand whereas the extended identity involves the intricate details of the brand that help generate a constant motif.",
-    image:
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_20.png",
+      points: [
+      "Indian Stock Markets",
+      "Forex Trading Pairs",
+      "Crypto Assets",
+    ],
   },
   {
     id: "services-item-4",
+    title: "AI Strategy Builder",
+    number: "03",
+    description:
+      "No-Code AI Algo Strategy Builder for Multi-Market Trading Build, test, and automate trading strategies with AI—no coding needed. Trade Indian stocks, Forex, and Crypto from one smart algo dashboard.",
+    image:
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_21.png",
+      points: [
+      "No-Code AI Builder",
+      "Paper & Live Trading",
+      "Multi-Market Automation",
+    ],
+  },
+    {
+    id: "services-item-3",
     title: "Development",
     number: "04",
     description:
       "The core identity reflects consistent associations with the brand whereas the extended identity involves the intricate details of the brand that help generate a constant motif.",
     image:
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_21.png",
+      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_20.png",
   },
   {
     id: "services-item-5",
@@ -207,6 +223,16 @@ export default function ServicesSection() {
                     <p className="text-gray mb-0 text-[14px] leading-[1.6] text-[#666666]">
                       {activeService.description}
                     </p>
+                    {activeService.points && activeService.points.length > 0 && (
+                      <ul className="mt-4 space-y-2">
+                        {activeService.points.map((pt, idx) => (
+                          <li key={idx} className="flex items-start text-[14px] text-[#666666]">
+                            <span className="mr-3 text-green-600 font-semibold">✓</span>
+                            <span>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
               </div>

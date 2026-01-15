@@ -66,15 +66,17 @@ export default function Navbar() {
       <div className="w-full max-w-[1860px] mx-auto px-[30px] flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex-shrink-0">
-          <a href="/" className="flex items-center">
-            <Image
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/svgs/logo-dark-1.svg"
-              alt="Resonance Logo"
-              width={105}
-              height={34}
-              priority
-              className="h-[34px] w-auto"
-            />
+          <a href="/" className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#111111] to-[#333333] rounded-xl flex items-center justify-center shadow-lg">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M17 7H21V11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <span className="text-[22px] font-bold tracking-tight text-[#111111]">
+              <span className="bg-gradient-to-r from-[#111111] via-[#333333] to-[#555555] bg-clip-text text-transparent">Up</span>
+              <span className="text-[#111111]">trender</span>
+            </span>
           </a>
         </div>
 

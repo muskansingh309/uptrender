@@ -1,8 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 // Client logos
@@ -103,6 +107,7 @@ const slides = [
 
 export default function TrustSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const goToPrevious = () => {
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
@@ -112,11 +117,100 @@ export default function TrustSection() {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(".logos-heading", 
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: ".logos-section",
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(".logo-item",
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: ".logos-row",
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(".value-card",
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: ".carousel-section",
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(".nav-arrow",
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: ".carousel-section",
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(".dots-container",
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          delay: 0.3,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: ".carousel-section",
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const currentData = slides[currentSlide];
 
   return (
     <>
-      <section className="trust-section" id="trust">
+      <section ref={sectionRef} className="trust-section" id="trust">
         {/* Logos Section */}
         <div className="logos-section">
           <div className="container">
@@ -124,7 +218,7 @@ export default function TrustSection() {
             <div className="logos-row">
               {clientLogos.map((logo, index) => (
                 <div key={index} className="logo-item">
-                  <Image src={logo.src} alt={logo.alt} width={logo.width} height={0} className="logo-image" />
+                  <Image src={logo.src} alt={logo.alt} width={logo.width} height={24} className="logo-image" />
                 </div>
               ))}
             </div>

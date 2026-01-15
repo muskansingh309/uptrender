@@ -20,8 +20,8 @@ gsap.registerPlugin(ScrollTrigger);
 const teamMembers = [
   {
     id: 1,
-    name: "Thomas Johnson",
-    role: "Developer, co-founder",
+    name: "Harish Sharma",
+    role: "Head, co-founder",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_14.png",
   },
   {
@@ -110,10 +110,10 @@ const TeamSection: React.FC = () => {
               <footer className="mt-[20px]">
                 <div className="w-[40px] h-[1px] bg-[#111111] mb-[15px]"></div>
                 <div className="text-[15px] font-semibold text-[#111111] uppercase tracking-[1px]">
-                  Thomas Johnson
+                  Harish Sharma
                 </div>
                 <div className="text-[12px] text-[#666666] mt-[5px]">
-                  Developer, Co-founder
+                  Head, Co-founder
                 </div>
               </footer>
             </blockquote>

@@ -141,18 +141,50 @@
   }
 
   h1 {
-    font-size: 72px;
-    letter-spacing: -2px;
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  @media (min-width: 640px) {
+    h1 {
+      font-size: 52px;
+      letter-spacing: -1.5px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 72px;
+      letter-spacing: -2px;
+    }
   }
 
   h2 {
-    font-size: 32px;
+    font-size: 24px;
     letter-spacing: -0.01em;
   }
 
+  @media (min-width: 640px) {
+    h2 {
+      font-size: 32px;
+    }
+  }
+
   h3 {
-    font-size: 48px;
+    font-size: 32px;
     letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 640px) {
+    h3 {
+      font-size: 40px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h3 {
+      font-size: 48px;
+    }
   }
 
   p {
@@ -165,27 +197,51 @@
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 
   .caption {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     color: #666666;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     display: block;
+  }
+
+  @media (min-width: 640px) {
+    .caption {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      margin-bottom: 1.5rem;
+    }
   }
 
   .btn-round {
     @apply inline-flex items-center justify-center rounded-full transition-all duration-300;
     background-color: #111111;
     color: #ffffff;
-    padding: 14px 36px;
-    font-size: 13px;
+    padding: 12px 28px;
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+  }
+
+  @media (min-width: 640px) {
+    .btn-round {
+      padding: 14px 36px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
   }
 
   .btn-round:hover {

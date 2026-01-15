@@ -1,9 +1,12 @@
 "use client";
-
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 /**
  * How We Work section matching the design:
@@ -42,14 +45,62 @@ const workSteps = [
 
 export default function HowWeWork() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".images-container", {
+        x: -80,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+
+      gsap.from(".section-heading", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: ".section-heading",
+          start: "top 85%",
+        },
+      });
+
+      gsap.from(".accordion-item", {
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: ".accordion-container",
+          start: "top 85%",
+        },
+      });
+
+      gsap.from(".cta-container", {
+        y: 40,
+        opacity: 0,
+        duration: 0.7,
+        scrollTrigger: {
+          trigger: ".cta-container",
+          start: "top 90%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <>
-      <section className="how-we-work-section" id="how-we-work">
+      <section ref={sectionRef} className="how-we-work-section" id="how-we-work">
         <div className="container px-[15px] mx-auto max-w-[1200px]">
           <div className="flex flex-wrap items-start">
             {/* Left Column: Overlapping Images */}
