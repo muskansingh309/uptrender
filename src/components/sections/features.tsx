@@ -124,7 +124,7 @@ export default function FeaturesSection() {
 
   return (
     <section ref={sectionRef} className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50" id="features">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-6 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
           <span className="inline-block text-[#0ea5e9] font-bold text-sm md:text-base uppercase tracking-wider mb-4">
