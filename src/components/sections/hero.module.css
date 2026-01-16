@@ -16,7 +16,21 @@
 @media (min-width: 768px) {
   .heroSection {
     /* keep main hero image covering, leave SVG to auto sizing and anchored bottom-left */
-    background-size: cover, auto;
+    background-size: 80% auto, auto;
+    background-position: center right, left bottom;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroSection {
+    background-size: 75% auto, auto;
+    background-position: center right, left bottom;
+  }
+}
+
+@media (min-width: 1280px) {
+  .heroSection {
+    background-size: 60% auto, auto;
     background-position: center right, left bottom;
   }
 }
@@ -40,6 +54,8 @@
   padding-bottom: 80px;
   padding-left: 15px;
   padding-right: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Reduce large top spacing on small screens so hero CTA stays visible */
@@ -94,10 +110,17 @@
 
 @media (min-width: 480px) {
   .grid {
-    gap: 25px;
-  }
+    background-size: 60% auto, auto;
+    background-position: calc(100% - 160px) center, left bottom;
 }
 
+
+@media (min-width: 1600px) {
+  .heroSection {
+    background-position: calc(100% - 220px) center, left bottom;
+    background-size: 55% auto, auto;
+  }
+}
 @media (min-width: 768px) {
   .grid {
     gap: 50px;
@@ -358,6 +381,11 @@
   margin-top: -30px;
 }
 
+/* add slight right padding so mockups don't touch the viewport edge */
+.mockupContainer {
+  padding-right: 16px;
+}
+
 @media (min-width: 375px) {
   .mockupContainer {
     height: 340px;
@@ -384,10 +412,11 @@
 @media (min-width: 768px) {
   .mockupContainer {
     height: 520px;
-    max-width: 100%;
+    max-width: 760px;
     margin-top: -140px;
     width: 100%;
     justify-content: flex-end;
+    padding-right: 40px;
   }
 }
 
@@ -395,7 +424,16 @@
   .mockupContainer {
     height: 560px;
     margin-top: -160px;
+    max-width: 900px;
     width: 100%;
+    padding-right: 80px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .mockupContainer {
+    padding-right: 140px;
+    max-width: 1100px;
   }
 }
 
@@ -404,6 +442,7 @@
     height: 620px;
     margin-top: -160px;
     width: 100%;
+    padding-right: 120px;
   }
 }
 
@@ -554,6 +593,9 @@
     bottom: -68px;
     height: 15px;
   }
+  .desktopMockup {
+    margin-right: 24px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -570,6 +612,9 @@
   .desktopMockup::before {
     bottom: -74px;
     height: 16px;
+  }
+  .desktopMockup {
+    margin-right: 40px;
   }
 }
 
@@ -606,7 +651,7 @@
 /* Mobile Mockup Container - White 3D iPhone Style */
 .mobileMockup {
   position: absolute;
-  right: -5%;
+  right: 0;
   bottom: 50px;
   width: 28%;
   max-width: 100px;
@@ -619,12 +664,12 @@
     0 0 0 1px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 1);
   z-index: 20;
-  transform: translateY(25%);
+  transform: translate(8%, 25%);
 }
 
 @media (min-width: 375px) {
   .mobileMockup {
-    right: -8%;
+    right: 0;
     bottom: 55px;
     width: 30%;
     max-width: 110px;
@@ -635,7 +680,7 @@
 
 @media (min-width: 480px) {
   .mobileMockup {
-    right: -10%;
+    right: 0;
     bottom: 58px;
     width: 28%;
     max-width: 120px;
@@ -646,7 +691,7 @@
 
 @media (min-width: 640px) {
   .mobileMockup {
-    right: -8%;
+    right: 0;
     bottom: 62px;
     width: 26%;
     max-width: 130px;
@@ -657,7 +702,7 @@
 
 @media (min-width: 768px) {
   .mobileMockup {
-    right: -10%;
+    right: 0;
     bottom: 65px;
     width: 24%;
     max-width: 140px;
@@ -668,7 +713,7 @@
 
 @media (min-width: 1024px) {
   .mobileMockup {
-    right: -8%;
+    right: 0;
     bottom: 70px;
     width: 22%;
     max-width: 150px;
@@ -679,7 +724,7 @@
 
 @media (min-width: 1280px) {
   .mobileMockup {
-    right: -6%;
+    right: 0;
     bottom: 75px;
     width: 20%;
     max-width: 160px;
@@ -792,4 +837,5 @@
   .scrollText {
     font-size: 12px;
   }
+}
 }
