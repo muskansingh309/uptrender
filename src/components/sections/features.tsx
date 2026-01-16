@@ -66,12 +66,10 @@ export default function FeaturesSection() {
 
       const content = card.querySelector('.feature-content');
       const mockup = card.querySelector('.feature-mockup');
-      const image1 = card.querySelector('.feature-image-1');
-      const image2 = card.querySelector('.feature-image-2');
+      const imageEl = card.querySelector('.feature-image-2');
 
       gsap.set(content, { opacity: 0, y: 30 });
-      gsap.set(image1, { opacity: 0, x: -50, scale: 0.9 });
-      gsap.set(image2, { opacity: 0, x: 50, scale: 0.9 });
+      gsap.set(imageEl, { opacity: 0, y: 30, scale: 0.95 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -86,25 +84,13 @@ export default function FeaturesSection() {
           },
         },
       });
-
-      tl.to(image1, {
+      tl.to(imageEl, {
         opacity: 1,
-        x: 0,
+        y: 0,
         scale: 1,
-        duration: 0.8,
+        duration: 0.9,
         ease: 'power3.out',
       })
-      .to(
-        image2,
-        {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: 'power3.out',
-        },
-        '-=0.5'
-      )
       .to(
         content,
         {
@@ -130,7 +116,7 @@ export default function FeaturesSection() {
           <span className="inline-block text-[#0ea5e9] font-bold text-sm md:text-base uppercase tracking-wider mb-4">
             Features
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Everything You Need to Trade Smarter
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -139,7 +125,7 @@ export default function FeaturesSection() {
         </div>
 
         {/* Feature Cards */}
-        <div className="flex flex-col gap-16 md:gap-24">
+        <div className="flex flex-col gap-16 md:gap-28">
           {featuresData.map((feature, index) => (
             <div
               key={feature.id}
@@ -149,45 +135,20 @@ export default function FeaturesSection() {
               <div
                 className={`flex flex-col ${
                   feature.imagePosition === 'left' ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                } items-center gap-8 lg:gap-12 xl:gap-16`}
+                } items-center gap-10 sm:gap-12 lg:gap-16 xl:gap-20 2xl:gap-24`}
               >
-                {/* Image Side - 2 Overlapping Images */}
-                <div className="feature-mockup w-full lg:w-1/2 flex items-center justify-center py-8">
-                  <div className="relative w-full max-w-[500px] h-[420px] md:h-[500px]">
-                    {/* First Image - Background Layer */}
-                    <div className="feature-image-1 absolute top-0 left-0 w-[70%] h-[75%] rounded-[24px] overflow-hidden shadow-xl border-4 border-white z-10">
-                      {feature.contentType === 'video' ? (
-                        <video
-                          ref={(el) => { videoRefs.current[index] = el; }}
-                          className="w-full h-full object-cover"
-                          muted
-                          loop
-                          playsInline
-                          preload="metadata"
-                        >
-                          <source src={feature.screenContent} type="video/mp4" />
-                          <source src={feature.screenContent} type="video/quicktime" />
-                        </video>
-                      ) : (
-                        <Image
-                          src={feature.screenContent}
-                          alt={`${feature.tagline} preview`}
-                          fill
-                          className="object-cover"
-                          unoptimized
-                        />
-                      )}
-                    </div>
-                    
-                    {/* Second Image - Foreground Layer */}
-                    <div className="feature-image-2 absolute bottom-0 right-0 w-[65%] h-[70%] rounded-[24px] overflow-hidden shadow-2xl border-4 border-white z-20">
+                {/* Image Side */}
+                <div className="feature-mockup w-full lg:w-5/12 xl:w-2/5 flex items-center justify-center py-8">
+                  <div className="relative w-full max-w-[380px] sm:max-w-[420px] h-[380px] sm:h-[380px] md:h-[430px]">
+                    {/* Single Foreground Image */}
+                    <div className="feature-image-2 relative w-full h-full rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-2xl border-3 sm:border-4 border-white">
                       {feature.contentType === 'video' ? (
                         feature.mockupImage ? (
                           <Image
                             src={feature.mockupImage}
                             alt={`${feature.tagline} mockup`}
                             fill
-                            className="object-cover scale-110 brightness-105"
+                            className="object-cover"
                             unoptimized
                           />
                         ) : (
@@ -205,24 +166,24 @@ export default function FeaturesSection() {
                           src={feature.mockupImage}
                           alt={`${feature.tagline} mockup`}
                           fill
-                          className="object-cover scale-110 brightness-105"
+                          className="object-cover"
                           unoptimized
                         />
                       )}
                     </div>
                     
                     {/* Decorative elements */}
-                    <div className="absolute top-[10%] right-[15%] w-16 h-16 rounded-full bg-[#0ea5e9]/10 -z-10"></div>
-                    <div className="absolute bottom-[15%] left-[10%] w-24 h-24 rounded-full bg-[#0ea5e9]/5 -z-10"></div>
+                    <div className="absolute -top-4 -right-4 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#0ea5e9]/10 -z-10"></div>
+                    <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-[#0ea5e9]/5 -z-10"></div>
                   </div>
                 </div>
 
                 {/* Content Side */}
-                <div className="feature-content w-full lg:w-1/2 text-center lg:text-left">
+                <div className="feature-content w-full lg:w-7/12 xl:w-3/5 text-center lg:text-left px-4 sm:px-0">
                   <span className="inline-block text-[#0ea5e9] font-bold text-sm md:text-base uppercase tracking-wider mb-4">
                     {feature.tagline}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                  <h3 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                     {feature.title}
                   </h3>
                   <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed">
