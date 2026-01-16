@@ -78,29 +78,29 @@ const BlogSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white py-[100px] md:py-[120px]" id="blog">
-      <div className="container px-[15px] mx-auto max-w-[1200px]">
+    <section ref={sectionRef} className="bg-white py-[60px] sm:py-[80px] md:py-[100px] lg:py-[120px]" id="blog">
+      <div className="container px-[15px] sm:px-[20px] mx-auto max-w-[1200px]">
         {/* Section Header */}
-        <div className="flex flex-wrap items-end justify-between mb-[50px] blog-header">
+        <div className="flex flex-wrap items-end justify-between mb-[35px] sm:mb-[45px] md:mb-[50px] blog-header">
           <div>
-            <span className="block text-[12px] font-semibold uppercase tracking-[0.2em] text-[#666666] mb-[15px]">
+            <span className="block text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#0ea5e9] mb-[10px] sm:mb-[15px]">
               Our Blog
             </span>
-            <h2 className="text-[36px] md:text-[48px] font-medium tracking-[-0.02em] text-[#111111] leading-[1.1]">
+            <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-medium tracking-[-0.02em] text-[#1e293b] leading-[1.15]">
               The latest news
             </h2>
           </div>
           <a 
-            href="#" 
-            className="text-[14px] font-medium text-[#111111] inline-flex items-center gap-[8px] hover:gap-[12px] transition-all duration-300 mt-[20px] md:mt-0"
+            href="/blog" 
+            className="text-[13px] sm:text-[14px] font-medium text-[#0ea5e9] inline-flex items-center gap-[6px] sm:gap-[8px] hover:gap-[10px] sm:hover:gap-[12px] transition-all duration-300 mt-[16px] sm:mt-[20px] md:mt-0"
           >
             Read more in our blog
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </a>
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] blog-grid">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[24px] sm:gap-[28px] lg:gap-[30px] blog-grid">
           {blogPosts.map((post) => (
             <article 
               key={post.id} 
@@ -117,18 +117,18 @@ const BlogSection = () => {
               </div>
 
               {/* Content */}
-              <div className='border border-[#d9d9db] rounded-b-[6px] p-[20px] transition-all duration-300 hover:border-[#bfbfc1]'>
-                <h3 className="text-[18px] md:text-[20px] font-medium leading-[1.4] text-[#111111] mb-[15px] transition-colors duration-300 group-hover:text-[#666666]">
+              <div className='border border-[#e0f2fe] rounded-b-[6px] p-[16px] sm:p-[20px] transition-all duration-300 hover:border-[#7dd3fc] hover:shadow-lg'>
+                <h3 className="text-[16px] sm:text-[18px] md:text-[20px] font-medium leading-[1.4] text-[#1e293b] mb-[12px] sm:mb-[15px] transition-colors duration-300 group-hover:text-[#0ea5e9]">
                   <a href="#">{post.title}</a>
                 </h3>
-                <p className="text-[15px] leading-[1.7] text-[#666666] mb-[20px]">
+                <p className="text-[14px] sm:text-[15px] leading-[1.65] sm:leading-[1.7] text-[#64748b] mb-[16px] sm:mb-[20px]">
                   {post.description}
                 </p>
 
                 {/* Meta - Author and Date */}
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-[10px]">
-                    <div className="relative w-[28px] h-[28px] rounded-full overflow-hidden">
+                  <div className="flex items-center gap-[8px] sm:gap-[10px]">
+                    <div className="relative w-[24px] h-[24px] sm:w-[28px] sm:h-[28px] rounded-full overflow-hidden">
                       <Image
                         src={post.authorAvatar}
                         alt={post.author}
@@ -136,11 +136,11 @@ const BlogSection = () => {
                         className="object-cover"
                       />
                     </div>
-                    <span className="text-[13px] font-medium text-[#111111]">
+                    <span className="text-[12px] sm:text-[13px] font-medium text-[#1e293b]">
                       {post.author}
                     </span>
                   </div>
-                  <span className="text-[13px] text-[#666666]">
+                  <span className="text-[12px] sm:text-[13px] text-[#64748b]">
                     {post.date}
                   </span>
                 </div>

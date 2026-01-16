@@ -94,25 +94,25 @@ const TeamSection: React.FC = () => {
   };
 
   return (
-    <section ref={sectionRef} className="page-section bg-gray-light-1 py-[100px]" id="team">
-      <div className="container px-[15px] mx-auto max-w-[1140px]">
+    <section ref={sectionRef} className="page-section bg-gray-light-1 py-[60px] sm:py-[80px] lg:py-[100px]" id="team">
+      <div className="container px-[15px] sm:px-[20px] mx-auto max-w-[1140px]">
         <div className="flex flex-wrap -mx-[15px]">
           {/* Blockquote Left */}
-          <div className="w-full md:w-1/2 px-[15px] mb-[40px] md:mb-0 flex items-center team-blockquote">
+          <div className="w-full lg:w-1/2 px-[15px] mb-[40px] lg:mb-0 flex items-center team-blockquote">
             <blockquote className="m-0 relative pl-0">
-              <div className="w-[50px] h-[50px] bg-white rounded-full flex items-center justify-center mb-[10px] text-[#111111] font-display  shadow-sm border border-[#f0f0f0]">
-                <span className="text-[44px]  leading-none text-[#111111] pt-[20px]">”</span>
+              <div className="w-[42px] h-[42px] sm:w-[50px] sm:h-[50px] bg-gradient-to-br from-[#0ea5e9] to-[#0284c7] rounded-full flex items-center justify-center mb-[8px] sm:mb-[10px] shadow-lg">
+                <span className="text-[36px] sm:text-[44px] leading-none text-white pt-[16px] sm:pt-[20px]">"</span>
               </div>
 
-              <p className="text-[32px] md:text-[38px] leading-[1.3] text-[#111111] font-display font-medium tracking-tight mb-[30px] italic">
+              <p className="text-[24px] sm:text-[30px] md:text-[34px] lg:text-[38px] leading-[1.3] text-[#1e293b] font-display font-medium tracking-tight mb-[24px] sm:mb-[30px] italic">
                 We are strong team who brings innovative ideas into production.
               </p>
-              <footer className="mt-[20px]">
-                <div className="w-[40px] h-[1px] bg-[#111111] mb-[15px]"></div>
-                <div className="text-[15px] font-semibold text-[#111111] uppercase tracking-[1px]">
+              <footer className="mt-[16px] sm:mt-[20px]">
+                <div className="w-[32px] sm:w-[40px] h-[2px] bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] mb-[12px] sm:mb-[15px]"></div>
+                <div className="text-[13px] sm:text-[15px] font-semibold text-[#1e293b] uppercase tracking-[1px]">
                   Harish Sharma
                 </div>
-                <div className="text-[12px] text-[#666666] mt-[5px]">
+                <div className="text-[11px] sm:text-[12px] text-[#64748b] mt-[4px] sm:mt-[5px]">
                   Head, Co-founder
                 </div>
               </footer>
@@ -120,15 +120,15 @@ const TeamSection: React.FC = () => {
           </div>
 
           {/* Carousel Right */}
-          <div className="w-full md:w-1/2 px-[15px] relative overflow-hidden team-carousel">
+          <div className="w-full lg:w-1/2 px-[15px] relative overflow-hidden team-carousel">
             <div 
               className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 56}%)` }}
             >
               {teamMembers.map((member) => (
-                <div key={member.id} className="min-w-[55%] px-[12px]">
+                <div key={member.id} className="min-w-[70%] sm:min-w-[55%] px-[8px] sm:px-[12px]">
                   <div className="team-item group overflow-hidden">
-                    <div className="relative overflow-hidden mb-[25px] h-[350px] sm:h-[300px] lg:h-[350px]">
+                    <div className="relative overflow-hidden mb-[18px] sm:mb-[25px] h-[280px] sm:h-[300px] lg:h-[350px]">
                       <Image
                         src={member.image}
                         alt={member.name}
@@ -136,25 +136,25 @@ const TeamSection: React.FC = () => {
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       {/* Social Links Overlay */}
-                      <div className="absolute inset-x-0 bottom-0 py-[15px] translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-white/90 flex justify-center gap-x-[15px]">
-                        <a href="#" className="text-[#111111] hover:text-[#666666] transition-colors">
+                      <div className="absolute inset-x-0 bottom-0 py-[12px] sm:py-[15px] translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-white/90 flex justify-center gap-x-[12px] sm:gap-x-[15px]">
+                        <a href="#" className="text-[#0ea5e9] hover:text-[#0284c7] transition-colors">
                           <Facebook size={14} />
                         </a>
-                        <a href="#" className="text-[#111111] hover:text-[#666666] transition-colors">
+                        <a href="#" className="text-[#0ea5e9] hover:text-[#0284c7] transition-colors">
                           <Twitter size={14} />
                         </a>
-                        <a href="#" className="text-[#111111] hover:text-[#666666] transition-colors">
+                        <a href="#" className="text-[#0ea5e9] hover:text-[#0284c7] transition-colors">
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.44 7.63 11.25.12.02.24.03.37.03.45 0 .81-.36.81-.81v-1.12c-3.33.72-4.03-1.61-4.03-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48 1 .11-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23.96-.27 1.99-.4 3.02-.4 1.03 0 2.06.13 3.02.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.3c0 .45.36.81.81.81.13 0 .25-.01.37-.03 4.47-1.81 7.63-6.17 7.63-11.25 0-6.63-5.37-12-12-12z" />
                           </svg>
                         </a>
                       </div>
                     </div>
-                    <div className="team-item-descr text-center mt-[12px]">
-                      <div className="text-[18px] font-medium text-[#111111] mb-[6px]">
+                    <div className="team-item-descr text-center mt-[10px] sm:mt-[12px]">
+                      <div className="text-[16px] sm:text-[18px] font-medium text-[#1e293b] mb-[4px] sm:mb-[6px]">
                         {member.name}
                       </div>
-                      <div className="text-[13px] text-[#666666] font-normal italic">
+                      <div className="text-[12px] sm:text-[13px] text-[#64748b] font-normal italic">
                         {member.role}
                       </div>
                     </div>
@@ -164,20 +164,22 @@ const TeamSection: React.FC = () => {
             </div>
 
             {/* Controls */}
-            <div className="flex items-center gap-x-[15px] mt-[40px] md:absolute md:top-1/2 md:-translate-y-1/2 md:inset-x-0 md:justify-between px-[30px] pointer-events-none">
+            <div className="flex items-center gap-x-[12px] sm:gap-x-[15px] mt-[30px] sm:mt-[40px] lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:inset-x-0 lg:justify-between px-[15px] sm:px-[30px] pointer-events-none justify-center lg:mt-0">
               <button 
                 onClick={handlePrev}
-                className="w-[44px] h-[44px] flex items-center justify-center rounded-full bg-white text-[#111111] border border-[#e5e5e5] hover:bg-[#111111] hover:text-white transition-all pointer-events-auto shadow-sm"
+                className="w-[40px] h-[40px] sm:w-[44px] sm:h-[44px] flex items-center justify-center rounded-full bg-white text-[#1e293b] border border-[#e0f2fe] hover:bg-gradient-to-r hover:from-[#0ea5e9] hover:to-[#0284c7] hover:text-white hover:border-transparent transition-all pointer-events-auto shadow-sm"
                 aria-label="Previous Slide"
               >
-                <MoveLeft size={18} />
+                <MoveLeft size={16} className="sm:hidden" />
+                <MoveLeft size={18} className="hidden sm:block" />
               </button>
               <button 
                 onClick={handleNext}
-                className="w-[44px] h-[44px] flex items-center justify-center rounded-full bg-white text-[#111111] border border-[#e5e5e5] hover:bg-[#111111] hover:text-white transition-all pointer-events-auto shadow-sm"
+                className="w-[40px] h-[40px] sm:w-[44px] sm:h-[44px] flex items-center justify-center rounded-full bg-white text-[#1e293b] border border-[#e0f2fe] hover:bg-gradient-to-r hover:from-[#0ea5e9] hover:to-[#0284c7] hover:text-white hover:border-transparent transition-all pointer-events-auto shadow-sm"
                 aria-label="Next Slide"
               >
-                <MoveRight size={18} />
+                <MoveRight size={16} className="sm:hidden" />
+                <MoveRight size={18} className="hidden sm:block" />
               </button>
             </div>
           </div>

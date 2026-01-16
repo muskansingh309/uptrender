@@ -65,25 +65,25 @@ export default function Footer() {
             <div className="footer-brand">
                 <div className="footer-logo">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-gradient-to-br from-[#111111] to-[#333333] rounded-lg flex items-center justify-center shadow-sm">
+                    <div className="w-9 h-9 bg-gradient-to-br from-[#0ea5e9] to-[#0284c7] rounded-lg flex items-center justify-center shadow-sm">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
-                    <span className="text-[18px] font-semibold">Uptrender</span>
+                    <span className="text-[18px] font-semibold text-[#1e293b]">Uptrender</span>
                   </div>
                 </div>
               <p className="footer-description">
-                Integer auctor aliquet martor, sed lorem malesuada eros blandit eget. Proin lacinia mortoc id odio vestibulum.
+               India’s First Multi-Market AI-Powered Algo Trading Dashboard for Indian, Forex & Crypto Markets.
               </p>
               <div className="footer-contact-info">
                 <div className="contact-line">
                   <span className="contact-prefix">T.</span>
-                  <a href="tel:+18376528800">+1 837 652 8800</a>
+                  <a href="tel:+919644466612">+91 9644466612</a>
                 </div>
                 <div className="contact-line">
                   <span className="contact-prefix">E.</span>
-                  <a href="mailto:ibthemes21@gmail.com">ibthemes21@gmail.com</a>
+                  <a href="mailto:ibthemes21@gmail.com">harishtiwari@quantechtrends.com</a>
                 </div>
               </div>
             </div>
@@ -94,7 +94,6 @@ export default function Footer() {
               <ul className="footer-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
@@ -132,8 +131,8 @@ export default function Footer() {
 
           {/* Bottom Bar */}
           <div className="footer-bottom">
-            <span className="copyright">© IB-Themes 2024.</span>
-            <span className="location">Based in London, United Kingdom.</span>
+            <span className="copyright">© quantechtrends 2026</span>
+            <span className="location">Based in Chhattisgarh, India.</span>
             <button onClick={scrollToTop} className="scroll-top-btn" aria-label="Scroll to top">
               <ArrowUp size={18} />
             </button>
@@ -144,7 +143,7 @@ export default function Footer() {
       <style jsx>{`
         .footer {
           background: white;
-          border-top: 1px solid #e5e5e5;
+          border-top: 1px solid #e0f2fe;
           padding: 100px 0 40px;
         }
         .footer-container {
@@ -152,42 +151,84 @@ export default function Footer() {
           margin: 0 auto;
           padding: 0 15px;
         }
+        @media (min-width: 640px) {
+          .footer-container {
+            padding: 0 20px;
+          }
+        }
         .footer-content {
           display: grid;
-          grid-template-columns: 1.5fr 1fr 1fr 1fr;
-          gap: 60px;
-          margin-bottom: 80px;
+          grid-template-columns: 1fr;
+          gap: 35px;
+          margin-bottom: 50px;
+        }
+        @media (min-width: 640px) {
+          .footer-content {
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+          }
+        }
+        @media (min-width: 992px) {
+          .footer-content {
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 80px;
+          }
         }
         .footer-brand { max-width: 320px; }
-        .footer-logo { margin-bottom: 25px; }
+        .footer-logo { margin-bottom: 20px; }
+        @media (min-width: 640px) {
+          .footer-logo { margin-bottom: 25px; }
+        }
         .footer-description {
           color: #666;
-          font-size: 15px;
+          font-size: 14px;
           line-height: 1.7;
-          margin-bottom: 30px;
+          margin-bottom: 24px;
         }
-        .footer-contact-info { display: flex; flex-direction: column; gap: 8px; }
+        @media (min-width: 640px) {
+          .footer-description {
+            font-size: 15px;
+            margin-bottom: 30px;
+          }
+        }
+        .footer-contact-info { display: flex; flex-direction: column; gap: 6px; }
+        @media (min-width: 640px) {
+          .footer-contact-info { gap: 8px; }
+        }
         .contact-line {
           display: flex;
           align-items: center;
-          font-size: 15px;
+          font-size: 14px;
+        }
+        @media (min-width: 640px) {
+          .contact-line {
+            font-size: 15px;
+          }
         }
         .contact-prefix {
-          color: #666;
+          color: #64748b;
           margin-right: 10px;
         }
         .contact-line a {
-          color: #111;
+          color: #1e293b;
           font-weight: 500;
           transition: color 0.3s;
         }
-        .contact-line a:hover { color: #666; }
+        .contact-line a:hover { color: #0ea5e9; }
         .column-title {
-          font-size: 15px;
+          font-size: 14px;
           font-weight: 600;
-          color: #111;
-          margin-bottom: 30px;
+          color: #1e293b;
+          margin-bottom: 20px;
           letter-spacing: 0.02em;
+        }
+        @media (min-width: 640px) {
+          .column-title {
+            font-size: 15px;
+            margin-bottom: 30px;
+          }
         }
         .footer-links {
           list-style: none;
@@ -195,63 +236,90 @@ export default function Footer() {
           margin: 0;
           display: flex;
           flex-direction: column;
-          gap: 15px;
+          gap: 12px;
+        }
+        @media (min-width: 640px) {
+          .footer-links {
+            gap: 15px;
+          }
         }
         .footer-links a {
-          color: #666;
-          font-size: 15px;
+          color: #64748b;
+          font-size: 14px;
           transition: color 0.3s;
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 10px;
         }
-        .footer-links a:hover { color: #111; }
+        @media (min-width: 640px) {
+          .footer-links a {
+            font-size: 15px;
+            gap: 12px;
+          }
+        }
+        .footer-links a:hover { color: #0ea5e9; }
         .footer-bottom {
           display: flex;
+          flex-direction: column;
           align-items: center;
-          justify-content: space-between;
-          padding-top: 40px;
-          border-top: 1px solid #f0f0f0;
+          justify-content: center;
+          gap: 16px;
+          padding-top: 30px;
+          border-top: 1px solid #e0f2fe;
+          text-align: center;
+        }
+        @media (min-width: 768px) {
+          .footer-bottom {
+            flex-direction: row;
+            justify-content: space-between;
+            padding-top: 40px;
+          }
         }
         .copyright, .location {
-          color: #999;
-          font-size: 13px;
+          color: #94a3b8;
+          font-size: 12px;
+        }
+        @media (min-width: 640px) {
+          .copyright, .location {
+            font-size: 13px;
+          }
         }
         .scroll-top-btn {
-          width: 50px;
-          height: 50px;
+          width: 44px;
+          height: 44px;
           border-radius: 50%;
-          border: 1px solid #e5e5e5;
+          border: 1px solid #e0f2fe;
           background: white;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
           transition: all 0.3s ease;
-          color: #111;
+          color: #1e293b;
+        }
+        @media (min-width: 640px) {
+          .scroll-top-btn {
+            width: 50px;
+            height: 50px;
+          }
         }
         .scroll-top-btn:hover {
-          background: #111;
+          background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
           color: white;
-          border-color: #111;
+          border-color: transparent;
         }
         @media (max-width: 992px) {
           .footer-content {
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 35px;
           }
         }
-        @media (max-width: 768px) {
-          .footer { padding: 60px 0 30px; }
+        @media (max-width: 639px) {
+          .footer { padding: 50px 0 25px; }
           .footer-content {
             grid-template-columns: 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-          }
-          .footer-bottom {
-            flex-direction: column;
-            gap: 20px;
-            text-align: center;
+            gap: 30px;
+            margin-bottom: 35px;
           }
         }
       `}</style>

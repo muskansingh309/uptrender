@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -8,7 +7,6 @@ const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
   { name: "Blog", href: "#blog" },
   { name: "Contact", href: "#contact" },
 ];
@@ -59,34 +57,34 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-[1030] transition-all duration-300 ${
         isScrolled
-          ? "bg-white shadow-sm h-[75px]"
-          : "bg-transparent h-[85px]"
+          ? "bg-white shadow-sm h-[60px] sm:h-[70px] lg:h-[75px]"
+          : "bg-transparent h-[70px] sm:h-[80px] lg:h-[85px]"
       } flex items-center`}
     >
-      <div className="w-full max-w-[1860px] mx-auto px-[30px] flex items-center justify-between">
+      <div className="w-full max-w-[1860px] mx-auto px-[15px] sm:px-[20px] lg:px-[30px] flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex-shrink-0">
           <a href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#111111] to-[#333333] rounded-xl flex items-center justify-center shadow-lg">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-[#0ea5e9] to-[#0284c7] rounded-lg lg:rounded-xl flex items-center justify-center shadow-lg">
+              <svg width="18" height="18" className="sm:w-[20px] sm:h-[20px] lg:w-[24px] lg:h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M17 7H21V11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <span className="text-[22px] font-bold tracking-tight text-[#111111]">
-              <span className="bg-gradient-to-r from-[#111111] via-[#333333] to-[#555555] bg-clip-text text-transparent">Up</span>
-              <span className="text-[#111111]">trender</span>
+            <span className="text-[18px] sm:text-[20px] lg:text-[22px] font-bold tracking-tight text-[#1e293b]">
+              <span className="bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] bg-clip-text text-transparent">Up</span>
+              <span className="text-[#1e293b]">trender</span>
             </span>
           </a>
         </div>
 
         {/* Mobile Menu Icon (Hidden on Desktop) */}
         <div className="lg:hidden">
-          <button onClick={toggleMobileMenu} className="p-2">
+          <button onClick={toggleMobileMenu} className="p-2 -mr-2">
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-[#111111]" />
+              <X className="w-6 h-6 text-[#1e293b]" />
             ) : (
-              <Menu className="w-6 h-6 text-[#111111]" />
+              <Menu className="w-6 h-6 text-[#1e293b]" />
             )}
             <span className="sr-only">Menu</span>
           </button>
@@ -99,10 +97,10 @@ export default function Navbar() {
               <li key={link.name} className="px-[12px]">
                 <a
                   href={link.href}
-                  className={`text-[14px] font-medium tracking-wide transition-opacity duration-200 uppercase ${
+                  className={`text-[14px] font-medium tracking-wide transition-all duration-200 uppercase ${
                     activeSection === link.href.substring(1)
-                      ? "text-[#111111] opacity-100"
-                      : "text-[#111111] opacity-70 hover:opacity-100"
+                      ? "text-[#0ea5e9]"
+                      : "text-[#1e293b] opacity-70 hover:text-[#0ea5e9] hover:opacity-100"
                   }`}
                 >
                   {link.name}
@@ -113,74 +111,52 @@ export default function Navbar() {
 
           {/* Right Side Items */}
           <div className="flex items-center space-x-[25px] ml-[20px]">
-            {/* Language Selector */}
-            <div className="relative group">
-              <button className="flex items-center text-[14px] font-medium text-[#111111] uppercase tracking-wide opacity-100">
-                En
-                <ChevronDown className="w-3 h-3 ml-1" />
-              </button>
-              <div className="absolute right-0 top-full mt-2 w-32 bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-[#e5e5e5]">
-                <ul className="py-2 list-none">
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-[13px] text-[#666666] hover:text-[#111111] hover:bg-[#f4f4f4]"
-                    >
-                      English
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-[13px] text-[#666666] hover:text-[#111111] hover:bg-[#f4f4f4]"
-                    >
-                      French
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-[13px] text-[#666666] hover:text-[#111111] hover:bg-[#f4f4f4]"
-                    >
-                      German
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+           
 
             {/* CTA Button */}
             <a
-              href="#contact"
-              className="group relative inline-block py-1"
+              href="/signin"
+              className="inline-flex items-center justify-center px-5 py-2 border-2 border-[#0ea5e9] text-[#0ea5e9] text-[12px] font-semibold uppercase tracking-wider rounded-[10px] hover:bg-[#0ea5e9] hover:text-white transition-all duration-300"
             >
-              <span className="text-[13px] font-semibold text-[#111111] uppercase tracking-[0.1em] relative">
-                Let's work together
-                <span className="absolute bottom-[-2px] left-0 w-full h-[1px] bg-[#111111] origin-left scale-x-100 group-hover:scale-x-0 transition-transform duration-300"></span>
-              </span>
+              Sign In
             </a>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Backdrop (closes on click) */}
+      {isMobileMenuOpen && (
+        <div
+          onClick={closeMobileMenu}
+          className="fixed inset-0 bg-black/40 z-[1040] lg:hidden"
+        />
+      )}
+
+      {/* Mobile Sidebar Menu (slides in from right) */}
       <div
-        className={`fixed inset-0 bg-white z-[1020] transform transition-transform duration-300 ease-in-out lg:hidden ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        style={{ top: isScrolled ? "75px" : "85px" }}
+        className="fixed right-0 lg:hidden"
+        style={{
+          top: isScrolled ? "60px" : "70px",
+          height: isScrolled ? "calc(100vh - 60px)" : "calc(100vh - 70px)",
+          width: 320,
+          transform: isMobileMenuOpen ? "translateX(0)" : "translateX(100%)",
+          transition: "transform 0.28s ease-in-out",
+          zIndex: 1050,
+          background: "white",
+          boxShadow: "-10px 0 30px rgba(16,24,40,0.08)",
+        }}
       >
-        <div className="flex flex-col h-full px-[30px] py-[40px]">
-          <ul className="flex flex-col space-y-[25px]">
+        <div className="flex flex-col h-full px-5 sm:px-8 py-6 overflow-y-auto">
+          <ul className="flex flex-col gap-5 sm:gap-6">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}
                   onClick={closeMobileMenu}
-                  className={`text-[18px] font-medium tracking-wide transition-opacity duration-200 ${
+                  className={`text-[16px] sm:text-[18px] font-medium tracking-wide transition-all duration-200 ${
                     activeSection === link.href.substring(1)
-                      ? "text-[#111111] opacity-100"
-                      : "text-[#111111] opacity-70"
+                      ? "text-[#0ea5e9]"
+                      : "text-[#1e293b] opacity-80 hover:text-[#0ea5e9]"
                   }`}
                 >
                   {link.name}
@@ -189,13 +165,13 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="mt-auto pt-[40px] border-t border-[#e5e5e5]">
+          <div className="mt-auto pt-6 border-t border-[#e8eef6]">
             <a
-              href="#contact"
+              href="/signin"
               onClick={closeMobileMenu}
-              className="inline-block bg-[#111111] text-white px-[30px] py-[15px] text-[13px] font-semibold uppercase tracking-[0.1em] hover:bg-[#333] transition-colors duration-300"
+              className="inline-block border-2 border-[#0ea5e9] text-[#0ea5e9] px-6 py-3 text-[13px] font-semibold uppercase tracking-wider rounded-[10px] hover:bg-[#0ea5e9] hover:text-white transition-all duration-300"
             >
-              Let's work together
+              Sign In
             </a>
           </div>
         </div>

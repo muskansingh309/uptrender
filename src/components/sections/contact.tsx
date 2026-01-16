@@ -88,11 +88,12 @@ export default function ContactSection() {
         <div className="newsletter-section">
           <div className="newsletter-bg"></div>
           <div className="newsletter-content">
-            <h2 className="newsletter-heading">Stay informed with our newsletter.</h2>
-            <div className="newsletter-form">
-              <input type="email" placeholder="Enter your email" className="newsletter-input" />
-              <button type="submit" className="newsletter-btn">SUBSCRIBE NOW</button>
-            </div>
+            <h2 className="newsletter-heading">Have a question? Get in touch.</h2>
+            <form className="newsletter-form">
+              <input type="text" placeholder="Enter your name" className="newsletter-input" required />
+              <input type="email" placeholder="Enter your email" className="newsletter-input" required />
+              <button type="submit" className="newsletter-btn">INQUIRY NOW</button>
+            </form>
             <p className="newsletter-terms">
               ⓘ By sending the form you agree to the <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy</a>.
             </p>
@@ -102,25 +103,25 @@ export default function ContactSection() {
         <div className="contact-section">
           <div className="contact-container">
             <div className="contact-header-row">
-              <div className="contact-header">
+              <div className="contact-header text-center md:text-left">
                 <span className="contact-label">CONTACT US</span>
                 <h2 className="contact-heading">Let&apos;s start the<br />productive work.</h2>
               </div>
               <div className="contact-info-cards">
-                <div className="contact-info-card">
-                  <div className="contact-icon"><MailPhoneIcon /></div>
+                <div className="contact-info-card text-center md:text-left">
+                  <div className="contact-icon flex justify-center md:justify-start"><MailPhoneIcon /></div>
                   <h4 className="contact-card-title">Say hello</h4>
                   <div className="contact-card-text">
-                    <a href="mailto:ibthemes21@gmail.com">ibthemes21@gmail.com</a>
-                    <a href="tel:+18376528800">+1 837 652 8800</a>
+                    <a href="mailto:ibthemes21@gmail.com">harishtiwari@quantechtrends.com</a>
+                    <a href="tel:+18376528800">+91 9644466612</a>
                   </div>
                 </div>
-                <div className="contact-info-card">
-                  <div className="contact-icon"><LocationIcon /></div>
+                <div className="contact-info-card text-center md:text-left">
+                  <div className="contact-icon flex justify-center md:justify-start"><LocationIcon /></div>
                   <h4 className="contact-card-title">Location</h4>
                   <div className="contact-card-text">
-                    <p>123 King Street, London W6 9JG,</p>
-                    <p>United Kingdom</p>
+                    <p>Babylon Capital Infront of Currency Tower, Vip Road Raipur (C.G) </p>
+                    <p>India</p>
                   </div>
                 </div>
               </div>
@@ -153,12 +154,14 @@ export default function ContactSection() {
               </div>
               <div className="contact-map">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5!2d-0.2274!3d51.4923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDI5JzMyLjMiTiAwwrAxMyczOC42Ilc!5e0!3m2!1sen!2sus!4v1"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.7954704734107!2d81.67493347551914!3d21.239957580490753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dd3984e8c78f%3A0x374915a53f820cf!2sBabylon%20Capital%2C%20Raipur!5e0!3m2!1sen!2sin!4v1768547302158!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Babylon Capital, Raipur"
                 ></iframe>
               </div>
             </div>
@@ -333,7 +336,7 @@ export default function ContactSection() {
         }
         .submit-btn {
           padding: 18px 35px;
-          background: #111;
+          background: linear-gradient(90deg, #0ea5e9 0%, #0284c7 100%);
           color: white;
           font-size: 12px;
           font-weight: 600;
@@ -344,11 +347,13 @@ export default function ContactSection() {
           white-space: nowrap;
           border: none;
           cursor: pointer;
-          transition: all 0.3s ease;
+          box-shadow: 0 6px 18px rgba(2,132,199,0.16);
+          transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
         }
         .submit-btn:hover {
-          background: #333;
-          transform: translateY(-2px);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 26px rgba(2,132,199,0.2);
+          opacity: 0.98;
         }
         .form-terms {
           font-size: 12px;
@@ -361,27 +366,51 @@ export default function ContactSection() {
           text-decoration: underline;
         }
         .contact-map {
-          height: 450px;
+          height: 350px;
           overflow: hidden;
+        }
+        @media (min-width: 640px) {
+          .contact-map { height: 400px; }
+        }
+        @media (min-width: 768px) {
+          .contact-map { height: 450px; }
         }
         .contact-map iframe { display: block; }
         @media (max-width: 992px) {
           .contact-header-row,
           .contact-content-row {
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 30px;
           }
-          .contact-heading { font-size: 36px; }
+          .contact-heading { font-size: 32px; }
         }
         @media (max-width: 768px) {
-          .newsletter-section { padding: 60px 0; }
-          .newsletter-heading { font-size: 28px; }
-          .newsletter-form { flex-direction: column; gap: 15px; }
-          .newsletter-input { max-width: 100%; }
-          .contact-section { padding: 60px 0; }
-          .contact-info-cards { grid-template-columns: 1fr; }
+          .newsletter-section { padding: 50px 0; }
+          .newsletter-heading { font-size: 24px; margin-bottom: 28px; }
+          .newsletter-form { flex-direction: column; gap: 12px; }
+          .newsletter-input { max-width: 100%; padding: 14px 18px; font-size: 14px; }
+          .newsletter-btn { padding: 14px 28px; font-size: 11px; width: 100%; }
+          .newsletter-terms { font-size: 12px; }
+          .contact-section { padding: 50px 0; }
+          .contact-info-cards { grid-template-columns: 1fr; gap: 25px; }
           .form-row { grid-template-columns: 1fr; gap: 0; }
-          .form-footer { flex-direction: column; align-items: flex-start; gap: 20px; }
+          .form-footer { flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 28px; }
+          .submit-btn { padding: 14px 28px; font-size: 11px; }
+          .contact-label { font-size: 11px; margin-bottom: 12px; }
+          .contact-heading { font-size: 26px; }
+          .contact-card-title { font-size: 16px; }
+          .contact-card-text { font-size: 13px; }
+          .form-group label { font-size: 13px; margin-bottom: 10px; }
+          .form-group input, .form-group textarea { padding: 12px 0; font-size: 13px; }
+          .form-terms { font-size: 11px; }
+        }
+        @media (max-width: 480px) {
+          .newsletter-section { padding: 40px 0; }
+          .newsletter-heading { font-size: 22px; margin-bottom: 24px; line-height: 1.3; }
+          .contact-section { padding: 40px 0; }
+          .contact-header-row { gap: 24px; margin-bottom: 40px; }
+          .contact-content-row { gap: 30px; }
+          .contact-heading { font-size: 24px; }
         }
       `}</style>
     </>

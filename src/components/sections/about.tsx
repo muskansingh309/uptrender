@@ -87,21 +87,21 @@ const AboutSection: React.FC = () => {
   return (
     <section 
       ref={sectionRef}
-      className="page-section scrollSpysection py-[120px] lg:py-[160px] bg-white overflow-hidden" 
+      className="page-section scrollSpysection -mt-5 py-[30px] sm:py-[50px] md:py-[70px] lg:py-[40px] xl:py-[100px] bg-white overflow-hidden" 
       id="about"
     >
-      <div className="container px-[15px] mx-auto max-w-[1140px] relative">
+      <div className="container px-[15px] sm:px-[20px] mx-auto max-w-[1140px] relative">
         
         {/* Header Row */}
-        <div className="flex flex-wrap mb-[80px] md:mb-[60px]">
+        <div className="flex flex-wrap mb-[40px] sm:mb-[60px] md:mb-[80px]">
           <div className="w-full md:w-1/2">
-            <span className="caption mb-[10px] md:mb-[15px] about-caption">Our VISION</span>
-            <h3 className="section-title text-[28px] md:text-[30px] font-medium leading-[1.1] tracking-[-0.02em] text-[#111111] mb-0 about-title">
+            <span className="caption mb-[8px] sm:mb-[10px] md:mb-[15px] about-caption text-[#0ea5e9]">Our VISION</span>
+            <h3 className="section-title text-[22px] sm:text-[26px] md:text-[30px] font-medium leading-[1.2] tracking-[-0.02em] text-[#1e293b] mb-0 about-title">
               A world where AI automation scales every trader's portfolio across global multi-market opportunities.
             </h3>
           </div>
           
-          <div className="w-full md:w-5/12 ml-auto relative text-left md:text-right pt-[40px] md:pt-[20px]">
+          <div className="w-full md:w-5/12 ml-auto relative text-left md:text-right pt-[24px] sm:pt-[30px] md:pt-[20px]">
             {/* Decorative Dots SVG */}
             <div 
               className="hidden md:block absolute right-0 top-[-80px] pointer-events-none"
@@ -120,10 +120,10 @@ const AboutSection: React.FC = () => {
               href="#team" 
               className="inline-flex items-center gap-2 group relative py-1 about-link"
             >
-              <span className="text-[14px] font-semibold uppercase tracking-[1px] text-[#111111] border-b border-[#111111] transition-all duration-300 group-hover:border-transparent">
+              {/* <span className="text-[13px] sm:text-[14px] font-semibold uppercase tracking-[1px] text-[#0ea5e9] border-b border-[#0ea5e9] transition-all duration-300 group-hover:border-transparent">
                 Learn more about us
-              </span>
-              <ArrowRight className="w-[18px] h-[18px] text-[#111111]" strokeWidth={2} />
+              </span> */}
+              {/* <ArrowRight className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px] text-[#0ea5e9]" strokeWidth={2} /> */}
             </a>
           </div>
         </div>
@@ -132,13 +132,13 @@ const AboutSection: React.FC = () => {
         <div className="flex flex-wrap items-start">
           
           {/* Main Image Container */}
-          <div className="w-full lg:w-1/2 mb-[60px] lg:mb-0 about-image">
+          <div className="w-full lg:w-1/2 mb-[40px] sm:mb-[50px] lg:mb-0 about-image">
             <div className="relative">
               {/*
                 Use an explicit height on the image wrapper and `fill` on Next/Image.
                 This ensures changing the wrapper height will scale the visible image.
               */}
-              <div className="relative overflow-hidden w-full h-[380px] sm:h-[450px] lg:h-[420px]">
+              <div className="relative overflow-hidden w-full h-[280px] sm:h-[350px] md:h-[400px] lg:h-[420px]">
                 <Image
                   alt="Creative person at desk"
                   src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_10.png"
@@ -164,16 +164,16 @@ const AboutSection: React.FC = () => {
           </div>
 
           {/* Mission & Vision Text Blocks */}
-          <div className="w-full lg:w-1/2 xl:w-5/12 lg:pl-[120px] xl:pl-[140px] flex flex-col justify-center">
-           <div className="mb-[30px] about-text-block">
-              <h4 className="text-[20px] font-medium text-[#111111] mb-[18px]">Our Story</h4>
-              <p className="text-[16px] leading-[1.6] text-[#666666]">
+          <div className="w-full lg:w-1/2 xl:w-5/12 lg:pl-[60px] xl:pl-[100px] 2xl:pl-[140px] flex flex-col justify-center">
+           <div className="mb-[24px] sm:mb-[30px] about-text-block">
+              <h4 className="text-[18px] sm:text-[20px] font-medium text-[#1e293b] mb-[12px] sm:mb-[18px]">Our Story</h4>
+              <p className="text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.6] text-[#64748b]">
                Started from trader frustration with multiple platforms. We built India's first AI-powered algo trading dashboard that unites Indian stocks, Forex, and Crypto markets—all in one place, no coding required.
               </p>
             </div>
-            <div className="mb-[30px] about-text-block">
-              <h4 className="text-[20px] font-medium text-[#111111] mb-[18px]">Our Mission</h4>
-              <p className="text-[16px] leading-[1.6] text-[#666666]">
+            <div className="mb-[24px] sm:mb-[30px] about-text-block">
+              <h4 className="text-[18px] sm:text-[20px] font-medium text-[#1e293b] mb-[12px] sm:mb-[18px]">Our Mission</h4>
+              <p className="text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.6] text-[#64748b]">
                 Democratize algo trading in India: Empower anyone to build, test, and deploy no-code strategies across Indian, Forex, and Crypto markets effortlessly.
               </p>
             </div>

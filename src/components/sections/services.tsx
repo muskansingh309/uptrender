@@ -2,290 +2,558 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface ServiceItem {
-  id: string;
-  title: string;
-  number: string;
-  description: string;
-  image: string;
-  points?: string[];
-}
 
-const services: ServiceItem[] = [
+// Icons
+const TrophyIcon = () => (
+  <svg width="50" height="50" viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <path d="M16 12H34V24C34 30 30 34 25 34C20 34 16 30 16 24V12Z" />
+    <path d="M16 16H12C10 16 9 18 9 20C9 23 11 25 14 25H16" />
+    <path d="M34 16H38C40 16 41 18 41 20C41 23 39 25 36 25H34" />
+    <path d="M25 34V40" />
+    <path d="M18 40H32" />
+    <circle cx="38" cy="8" r="3" />
+    <path d="M38 5V6" strokeLinecap="round" />
+    <path d="M38 10V11" strokeLinecap="round" />
+    <path d="M35 8H36" strokeLinecap="round" />
+    <path d="M40 8H41" strokeLinecap="round" />
+  </svg>
+);
+
+const MailIcon = () => (
+  <svg width="50" height="50" viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <path d="M8 18L25 8L42 18V38H8V18Z" />
+    <path d="M8 18L25 30L42 18" />
+  </svg>
+);
+
+const PartyIcon = () => (
+  <svg width="50" height="50" viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <path d="M12 40L20 18L32 30L12 40Z" />
+    <circle cx="30" cy="10" r="2" />
+    <circle cx="36" cy="14" r="1.5" />
+    <circle cx="40" cy="8" r="1" />
+    <path d="M28 6L30 8" strokeLinecap="round" />
+    <path d="M34 5L36 7" strokeLinecap="round" />
+    <path d="M38 10L40 12" strokeLinecap="round" />
+  </svg>
+);
+
+// Carousel data - 4 slides with 6 items each (2 rows x 3 cols)
+const slides = [
   {
-    id: "services-item-1",
-    title: "Smart Copy Trading",
-    number: "01",
-    description:
-      "Build Your Copy Trading Network for Indian Stocks, Forex & Crypto From selecting verified master traders to monitoring real-time performance, to scaling passive income—everything for automated copy trading is built right in.",
-    image:
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_18.png",
-    points: [
-      "Master Account Setup",
-      "Real-Time Trade Mirroring",
-      "Multi-Account Management",
+    topRow: [
+      { icon: <TrophyIcon />, title: "High Loyalty", description: "Mauris a libero et diam sodales semper. Aenean elit leo, hendrerit nec dolor id, rutrum finibus velit." },
+      { icon: <MailIcon />, title: "Accountability", description: "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." },
+      { icon: <PartyIcon />, title: "Simplicity", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue rhoncus enim, in pharetra lacus." },
+    ],
+    bottomRow: [
+      { icon: <TrophyIcon />, title: "High Learner", description: "Mauris a libero et diam sodales semper. Aenean elit leo, hendrerit nec dolor id, rutrum finibus velit." },
+      { icon: <MailIcon />, title: "Listener", description: "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." },
+      { icon: <PartyIcon />, title: "Innovator", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue rhoncus enim, in pharetra lacus." },
     ],
   },
   {
-    id: "services-item-2",
-    title: "Unified Multi-Market Algo Dashboard",
-    number: "02",
-    description:
-      "India's First Algo Dashboard for Indian, Forex & Crypto Trading From building multi-market strategies to backtesting on unified data, to deploying live algo trades without switching platforms—trade the world from one AI platform.",
-    image:
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_19.png",
-      points: [
-      "Indian Stock Markets",
-      "Forex Trading Pairs",
-      "Crypto Assets",
+    topRow: [
+      { icon: <TrophyIcon />, title: "Excellence", description: "We strive for excellence in every project, delivering quality that exceeds expectations." },
+      { icon: <MailIcon />, title: "Communication", description: "Clear and consistent communication is the foundation of successful collaboration." },
+      { icon: <PartyIcon />, title: "Innovation", description: "We embrace new technologies and creative approaches to solve complex challenges." },
+    ],
+    bottomRow: [
+      { icon: <TrophyIcon />, title: "Reliability", description: "Our clients can count on us to deliver on time and meet all project requirements." },
+      { icon: <MailIcon />, title: "Support", description: "We provide ongoing support and maintenance to ensure long-term success." },
+      { icon: <PartyIcon />, title: "Growth", description: "We help businesses grow and scale through strategic digital solutions." },
     ],
   },
   {
-    id: "services-item-4",
-    title: "AI Strategy Builder",
-    number: "03",
-    description:
-      "No-Code AI Algo Strategy Builder for Multi-Market Trading Build, test, and automate trading strategies with AI—no coding needed. Trade Indian stocks, Forex, and Crypto from one smart algo dashboard.",
-    image:
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_21.png",
-      points: [
-      "No-Code AI Builder",
-      "Paper & Live Trading",
-      "Multi-Market Automation",
+    topRow: [
+      { icon: <TrophyIcon />, title: "Dedication", description: "Our team is dedicated to understanding your unique needs and delivering tailored solutions." },
+      { icon: <MailIcon />, title: "Transparency", description: "We maintain open and honest communication throughout every project phase." },
+      { icon: <PartyIcon />, title: "Creativity", description: "Creative thinking drives our approach to design and problem-solving." },
+    ],
+    bottomRow: [
+      { icon: <TrophyIcon />, title: "Quality", description: "Quality is at the heart of everything we do, from code to customer service." },
+      { icon: <MailIcon />, title: "Partnership", description: "We view every client relationship as a long-term partnership built on trust." },
+      { icon: <PartyIcon />, title: "Vision", description: "We help you realize your vision with strategic planning and execution." },
     ],
   },
-    {
-    id: "services-item-3",
-    title: "Development",
-    number: "04",
-    description:
-      "The core identity reflects consistent associations with the brand whereas the extended identity involves the intricate details of the brand that help generate a constant motif.",
-    image:
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_20.png",
-  },
   {
-    id: "services-item-5",
-    title: "Photography",
-    number: "05",
-    description:
-      "The core identity reflects consistent associations with the brand whereas the extended identity involves the intricate details of the brand that help generate a constant motif.",
-    image:
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_22.png",
-  },
-  {
-    id: "services-item-6",
-    title: "Marketing",
-    number: "06",
-    description:
-      "The core identity reflects consistent associations with the brand whereas the extended identity involves the intricate details of the brand that help generate a constant motif.",
-    image:
-      "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_23.png",
+    topRow: [
+      { icon: <TrophyIcon />, title: "Passion", description: "We are passionate about creating digital experiences that make an impact." },
+      { icon: <MailIcon />, title: "Integrity", description: "We operate with integrity and always put our clients' interests first." },
+      { icon: <PartyIcon />, title: "Agility", description: "Our agile approach allows us to adapt quickly to changing requirements." },
+    ],
+    bottomRow: [
+      { icon: <TrophyIcon />, title: "Results", description: "We focus on delivering measurable results that drive business success." },
+      { icon: <MailIcon />, title: "Expertise", description: "Our team brings deep expertise across multiple industries and technologies." },
+      { icon: <PartyIcon />, title: "Collaboration", description: "We believe in collaborative partnerships that foster innovation and success." },
+    ],
   },
 ];
 
-export default function ServicesSection() {
-  const [activeTab, setActiveTab] = useState(services[0].id);
+export default function TrustSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const activeService =
-    services.find((s) => s.id === activeTab) || services[0];
+  const goToPrevious = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".services-header", {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      });
+      gsap.fromTo(".logos-heading", 
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: ".logos-section",
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
 
-      gsap.from(".service-tab-item", {
-        x: -40,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: ".services-tabs",
-          start: "top 85%",
-        },
-      });
+      gsap.fromTo(".logo-item",
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: ".logos-row",
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
 
-      gsap.from(".services-image-container", {
-        x: 80,
-        opacity: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".services-image-container",
-          start: "top 85%",
-        },
-      });
+      gsap.fromTo(".value-card",
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: ".carousel-section",
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(".nav-arrow",
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: ".carousel-section",
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(".dots-container",
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          delay: 0.3,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: ".carousel-section",
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
+  const currentData = slides[currentSlide];
+
   return (
-    <section
-      ref={sectionRef}
-      className="page-section scrollSpysection py-[100px]"
-      id="services"
-    >
-      <div className="container position-relative">
-        <div className="row flex flex-wrap -mx-[15px]">
-          {/* Left Column */}
-          <div className="col-lg-6 mb-md-60 mb-sm-30 px-[15px] w-full lg:w-1/2">
-            <div className="services-header">
-              <h2 className="section-caption mb-[18px] text-[12px] font-semibold uppercase tracking-[0.2em] text-[#666666]">
-                Our Services
-              </h2>
-              <h3 className="section-title mb-6 text-[48px] font-medium leading-[1.1] tracking-[-0.02em] text-[#111111]">
-                We provide the best development solutions.
-              </h3>
-              <div className="row flex flex-wrap -mx-[15px]">
-                <div className="col-lg-10 px-[15px] w-full lg:w-5/6">
-                  <p className="section-descr mb-0 mb-sm-30 text-[16px] leading-[1.6] text-[#666666]">
-                    The power of design help us to solve complex problems and
-                    cultivate business solutions.
-                  </p>
-                </div>
-              </div>
+    <>
+      <section ref={sectionRef} className="trust-section" id="services">
+    
+        {/* Services Carousel Section */}
+        <div className="carousel-section">
+          <div className="container">
+            {/* Section Heading */}
+            <div className="section-header">
+              <span className="section-label">What We Offer</span>
+              <h2 className="section-heading">Our Services</h2>
+              <p className="section-description">Comprehensive trading solutions designed for Indian, Forex, and Crypto markets</p>
             </div>
 
-            <ul
-              className="nav nav-tabs services-tabs flex flex-col space-y-4 pt-10"
-              role="tablist"
-            >
-              {services.map((service) => (
-                <li key={service.id} role="presentation" className="service-tab-item">
-                  <button
-                    onClick={() => setActiveTab(service.id)}
-                    className={cn(
-                      "flex items-center justify-between w-full text-left py-2 border-b border-transparent transition-all duration-300 group",
-                      activeTab === service.id
-                        ? "text-[#111111]"
-                        : "text-[#666666] hover:text-[#111111]"
-                    )}
-                  >
-                    <span
-                      className={cn(
-                        "text-[20px] font-medium tracking-[-0.01em] transition-all duration-500",
-                        activeTab === service.id
-                          ? "opacity-100"
-                          : "opacity-30 group-hover:opacity-100"
-                      )}
-                    >
-                      {service.title}
-                    </span>
-                    <span
-                      className={cn(
-                        "text-[12px] font-semibold uppercase tracking-widest ml-4 transition-all duration-500",
-                        activeTab === service.id
-                          ? "opacity-100"
-                          : "opacity-30 group-hover:opacity-100"
-                      )}
-                    >
-                      {service.number}
-                    </span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Left Arrow */}
+            <button onClick={goToPrevious} className="nav-arrow nav-arrow-left" aria-label="Previous slide">
+              <ChevronLeft strokeWidth={2} />
+            </button>
 
-          {/* Right Column - Active Tab Image */}
-          <div className="col-lg-6 px-[15px] w-full lg:w-1/2 flex items-center justify-end">
-            <div className="relative w-full max-w-[720px] services-image-container">
-              <div className="relative w-full h-[490px] md:h-[590px] lg:h-[680px]">
-                {/* Active Image */}
-                <Image
-                  src={activeService.image}
-                  alt={activeService.title}
-                  fill
-                  className="services-image object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
-                  priority={activeService.id === "services-item-1"}
-                />
+            {/* Right Arrow */}
+            <button onClick={goToNext} className="nav-arrow nav-arrow-right" aria-label="Next slide">
+              <ChevronRight strokeWidth={2} />
+            </button>
 
-                {/* The Content Overlay Box */}
-                <div className="services-text absolute bottom-10 left-[-40px] md:left-[-100px] bg-white p-[40px] shadow-xl max-w-[400px] z-20">
-                  <div className="services-text-container">
-                    <h4 className="services-title text-[20px] font-medium mb-[15px] text-[#111111]">
-                      {activeService.title}
-                    </h4>
-                    <p className="text-gray mb-0 text-[14px] leading-[1.6] text-[#666666]">
-                      {activeService.description}
-                    </p>
-                    {activeService.points && activeService.points.length > 0 && (
-                      <ul className="mt-4 space-y-2">
-                        {activeService.points.map((pt, idx) => (
-                          <li key={idx} className="flex items-start text-[14px] text-[#666666]">
-                            <span className="mr-3 text-green-600 font-semibold">✓</span>
-                            <span>{pt}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+            {/* Carousel Content */}
+            <div className="carousel-content">
+              {/* Top Row */}
+              <div className="values-row">
+                {currentData.topRow.map((item, index) => (
+                  <div key={`top-${index}`} className="value-card">
+                    <div className="value-icon">{item.icon}</div>
+                    <h4 className="value-title">{item.title}</h4>
+                    <p className="value-description">{item.description}</p>
                   </div>
-                </div>
+                ))}
               </div>
+
+              {/* Bottom Row */}
+              {/* <div className="values-row">
+                {currentData.bottomRow.map((item, index) => (
+                  <div key={`bottom-${index}`} className="value-card">
+                    <div className="value-icon">{item.icon}</div>
+                    <h4 className="value-title">{item.title}</h4>
+                    <p className="value-description">{item.description}</p>
+                  </div>
+                ))}
+              </div> */}
+            </div>
+
+            {/* Dot Indicators */}
+            <div className="dots-container">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`dot ${currentSlide === index ? "active" : ""}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <style jsx global>{`
-        .services-tabs button {
-          border: none;
-          background: none;
-          padding: 10px 0;
-          cursor: pointer;
+      <style jsx>{`
+        .trust-section {
+          width: 100%;
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 15px;
           position: relative;
         }
-        .services-tabs button::after {
-          content: "";
+
+        /* Logos Section */
+        .logos-section {
+          background: white;
+          padding: 60px 0 80px;
+        }
+
+        .logos-heading {
+          text-align: center;
+          font-size: 19px;
+          font-weight: 600;
+          color: #111111;
+          letter-spacing: 0.05em;
+          margin-bottom: 40px;
+        }
+
+        .logos-row {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          gap: 50px 50px;
+        }
+
+        .logo-item {
+          filter: grayscale(100%);
+          opacity: 0.5;
+          transition: all 0.3s ease;
+        }
+
+        .logo-item:hover {
+          filter: grayscale(0%);
+          opacity: 1;
+        }
+
+        .logo-image {
+          height: 24px;
+          width: auto;
+          object-fit: contain;
+        }
+
+        /* Carousel Section */
+        .carousel-section {
+          background: linear-gradient(135deg, #fbfbfb 0%, #f4f5f6 100%);
+          padding: 100px 0 80px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .carousel-section::before {
+          content: '';
           position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          height: 1px;
-          background-color: #111111;
-          transition: width 0.3s ease;
+          top: -20%;
+          right: -20%;
+          width: 80%;
+          height: 80%;
+          background: radial-gradient(ellipse at top right, rgba(100,100,100,0.06), transparent 40%);
+          pointer-events: none;
+          z-index: 0;
         }
-        .services-tabs li:has(button[class*="text-[#111111]"]) button::after {
-          width: 50%;
+
+        .section-header {
+          text-align: center;
+          margin-bottom: 60px;
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto;
         }
-        @media (max-width: 991px) {
-          .services-text {
-            position: relative;
-            left: 0 !important;
-            bottom: 0 !important;
-            max-width: 100% !important;
-            margin-top: 20px;
+
+        .section-label {
+          display: inline-block;
+          color: #9aa0a6; /* light greish */
+          font-size: 14px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          margin-bottom: 12px;
+        }
+
+        .section-heading {
+          font-size: 48px;
+          font-weight: 700;
+          color: #111111;
+          margin-bottom: 16px;
+          letter-spacing: -0.02em;
+        }
+
+        .section-description {
+          font-size: 18px;
+          line-height: 1.6;
+          color: #666666;
+        }
+
+        .nav-arrow {
+          position: absolute;
+          top: 55%;
+          transform: translateY(-50%);
+          background: white;
+          border: none;
+          color: #9aa0a6;
+          cursor: pointer;
+          transition: all 0.28s ease;
+          z-index: 10;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          box-shadow: 0 4px 10px rgba(154, 160, 166, 0.08);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .nav-arrow:hover {
+          background: #9aa0a6;
+          color: white;
+          box-shadow: 0 8px 24px rgba(154, 160, 166, 0.12);
+          transform: translateY(-50%) scale(1.04);
+        }
+
+        .nav-arrow-left {
+          left: 20px;
+        }
+
+        .nav-arrow-right {
+          right: 20px;
+        }
+
+        .carousel-content {
+          padding: 0 80px;
+        }
+
+        .values-row {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 40px;
+          margin-bottom: 50px;
+        }
+
+        .values-row:last-child {
+          margin-bottom: 0;
+        }
+
+        .value-card {
+          text-align: center;
+          background: white;
+          padding: 40px 30px;
+          border-radius: 20px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+          transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 10px 30px rgba(154, 160, 166, 0.06);
+        }
+
+        .value-icon {
+          color: #9aa0a6;
+          margin-bottom: 20px;
+          display: flex;
+          justify-content: center;
+        }
+
+        .value-title {
+          font-size: 22px;
+          font-weight: 600;
+          color: #111111;
+          margin-bottom: 15px;
+          letter-spacing: -0.01em;
+        }
+
+        .value-description {
+          font-size: 15px;
+          line-height: 1.7;
+          color: #666666;
+          max-width: 280px;
+          margin: 0 auto;
+        }
+
+        .dots-container {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 50px;
+        }
+
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: rgba(154, 160, 166, 0.12);
+          border: none;
+          cursor: pointer;
+          transition: all 0.26s ease;
+        }
+
+        .dot:hover {
+          background: rgba(154, 160, 166, 0.28);
+          transform: scale(1.06);
+        }
+
+        .dot.active {
+          background: #9aa0a6;
+          width: 26px;
+          border-radius: 6px;
+        }
+
+        @media (max-width: 1024px) {
+          .nav-arrow-left {
+            left: 10px;
           }
-          .services-content {
-            height: auto !important;
-            min-height: auto !important;
-            position: relative !important;
-            display: flex;
-            flex-direction: column;
+
+          .nav-arrow-right {
+            right: 10px;
           }
-          .services-content > div {
-            position: relative !important;
-            display: none;
+
+          .carousel-content {
+            padding: 0 60px;
           }
-          .services-content > div[class*="opacity-100"] {
-            display: block;
+        }
+
+        @media (max-width: 768px) {
+          .carousel-section {
+            padding: 60px 0;
+          }
+
+          .section-heading {
+            font-size: 32px;
+          }
+
+          .section-description {
+            font-size: 16px;
+          }
+
+          .section-header {
+            margin-bottom: 40px;
+          }
+
+          .carousel-content {
+            padding: 0 40px;
+          }
+
+          .values-row {
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+          }
+
+          .value-card {
+            padding: 30px 20px;
+          }
+
+          .logos-row {
+            gap: 30px;
+          }
+
+          .nav-arrow {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .section-heading {
+            font-size: 28px;
+          }
+
+          .carousel-content {
+            padding: 0 20px;
+          }
+
+          .nav-arrow-left {
+            left: 10px;
+          }
+
+          .nav-arrow-right {
+            right: 10px;
           }
         }
       `}</style>
-    </section>
+    </>
   );
 }

@@ -6,13 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Benefits Section Component
- * 
- * Matches the design: PRIMARY BENEFITS caption, "Why choose Resonance?" heading,
- * grey divider line, and 3 benefit cards with line-art icons
- * Includes GSAP scroll animations
- */
+
 
 // Custom SVG icons matching the design
 const BoxSearchIcon = () => (
@@ -97,41 +91,43 @@ const BenefitsSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-[10px] md:py-[10px] mb-20 bg-white" id="benefits">
-      <div className="container px-[15px] mx-auto max-w-[1200px]">
-        <div className="flex flex-wrap items-start">
+    <section ref={sectionRef} className="py-[60px] md:py-[80px] lg:py-[100px] bg-white" id="benefits">
+      <div className="container px-[15px] sm:px-[20px] mx-auto max-w-[1200px]">
+        <div className="flex flex-col lg:flex-row lg:flex-wrap items-center lg:items-start">
           {/* Section Header Column */}
-          <div className="w-full lg:w-[30%] mb-[50px] lg:mb-0 lg:pr-[40px] benefits-header">
-            <span className="block text-[12px] font-semibold uppercase tracking-[0.2em] text-[#969595] mb-[20px]">
+          <div className="w-full lg:w-[30%] lg:mb-0 lg:pr-[60px] lg:mt-[40px] lg:self-start benefits-header text-center lg:text-left">
+            <span className="block text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.2em] text-[#969595] mb-[16px] sm:mb-[20px]">
               Primary Benefits
             </span>
-            <h2 className="text-[36px] md:text-[42px] font-medium leading-[1.15] tracking-[-0.02em] text-[#111111] mb-0">
-              Why choose <br /> Resonance?
+            <h2 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[42px] font-medium leading-[1.15] tracking-[-0.02em] text-[#111111] mb-0">
+              Why choose <br className="hidden sm:block" /> Uptrender?
             </h2>
             {/* Grey divider line */}
-            <div className="w-[100px] h-[1px] bg-[#7a7878] mt-[35px]"></div>
+            <div className="w-[80px] sm:w-[100px] h-[1px] bg-[#7a7878] mt-[25px] sm:mt-[35px] mx-auto lg:mx-0"></div>
           </div>
 
           {/* Benefits Grid Column */}
           <div className="w-full lg:w-[70%]">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] md:gap-[40px] benefits-grid">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[20px] sm:gap-[24px] md:gap-[30px] benefits-grid">
               {benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className={`benefit-item benefit-card md:border-l md:border-[#e5e5e5] md:pl-8 md:py-2 ${index === 0 ? '' : ''}`}
+                  className="benefit-item benefit-card bg-[#f8fafc] rounded-xl sm:rounded-2xl p-[24px] sm:p-[28px] md:p-[32px] text-center border border-[#e2e8f0] hover:shadow-md transition-shadow duration-300"
                 >
                   {/* Icon Container */}
-                  <div className="mb-[20px] h-[60px]">
-                    {benefit.icon}
+                  <div className="mb-[16px] sm:mb-[20px] flex justify-center">
+                    <div className="w-[56px] h-[56px] sm:w-[60px] sm:h-[60px] flex items-center justify-center">
+                      {benefit.icon}
+                    </div>
                   </div>
                   
                   {/* Title */}
-                  <h4 className="text-[18px] font-semibold text-[#111111] mb-[15px] tracking-[-0.01em]">
+                  <h4 className="text-[16px] sm:text-[17px] md:text-[18px] font-semibold text-[#111111] mb-[12px] sm:mb-[15px] tracking-[-0.01em]">
                     {benefit.title}
                   </h4>
                   
                   {/* Description */}
-                  <p className="text-[15px] leading-[1.7] text-[#666666] m-0">
+                  <p className="text-[13px] sm:text-[14px] md:text-[15px] leading-[1.7] text-[#666666] m-0">
                     {benefit.description}
                   </p>
                 </div>

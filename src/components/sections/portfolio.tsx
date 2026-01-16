@@ -141,34 +141,34 @@ export default function PortfolioSection() {
   }, [filteredProjects]);
 
   return (
-    <section ref={sectionRef} className="bg-white py-[100px] md:py-[120px]" id="portfolio">
-      <div className="container px-[18px] mx-auto max-w-[1200px]">
+    <section ref={sectionRef} className="bg-white py-[60px] sm:py-[80px] md:py-[100px] lg:py-[120px]" id="portfolio">
+      <div className="container px-[15px] sm:px-[18px] mx-auto max-w-[1200px]">
         
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-[60px] gap-y-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-[40px] sm:mb-[50px] md:mb-[60px] gap-y-4">
           <div className="max-w-[600px] portfolio-header">
             <span 
-              className="caption tracking-[0.2em] text-[12px] font-semibold text-[#666666] uppercase mb-4 block"
+              className="caption tracking-[0.15em] sm:tracking-[0.2em] text-[11px] sm:text-[12px] font-semibold text-[#0ea5e9] uppercase mb-3 sm:mb-4 block"
             >
               Our Portfolio
             </span>
             <h3 
-              className="text-[32px] md:text-[48px] font-medium leading-[1.1] text-[#111111] tracking-[-0.02em]"
+              className="text-[26px] sm:text-[32px] md:text-[40px] lg:text-[48px] font-medium leading-[1.15] text-[#1e293b] tracking-[-0.02em]"
             >
               Creativity meets <br className="hidden md:block" /> technology here.
             </h3>
           </div>
           
           {/* Filter Categories */}
-          <div className="flex flex-wrap gap-x-6 gap-y-2 portfolio-filters">
+          <div className="flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-2 portfolio-filters">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`text-[12px] font-semibold uppercase tracking-[1px] transition-colors duration-300 relative pb-1 ${
+                className={`text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.5px] sm:tracking-[1px] transition-colors duration-300 relative pb-1 ${
                   activeFilter === cat 
-                    ? "text-[#111111] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-[#111111]" 
-                    : "text-[#666666] hover:text-[#111111]"
+                    ? "text-[#0ea5e9] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-[#0ea5e9] after:to-[#0284c7]" 
+                    : "text-[#64748b] hover:text-[#0ea5e9]"
                 }`}
               >
                 {cat}
@@ -178,15 +178,15 @@ export default function PortfolioSection() {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[45px] gap-y-[50px] portfolio-grid">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[20px] sm:gap-x-[30px] lg:gap-x-[45px] gap-y-[30px] sm:gap-y-[40px] lg:gap-y-[50px] portfolio-grid">
           {filteredProjects.map((project, index) => (
             <div 
               key={project.id} 
               className={`group transition-all duration-700 ease-out transform portfolio-item ${
-                index % 3 === 1 ? "md:translate-y-[40px]" : ""
+                index % 3 === 1 ? "lg:translate-y-[40px]" : ""
               }`}
             >
-              <div className="relative overflow-hidden mb-[25px] aspect-[3/4]">
+              <div className="relative overflow-hidden mb-[18px] sm:mb-[25px] aspect-[3/4]">
                 <img
                   src={project.imageUrl}
                   alt={project.title}
@@ -199,10 +199,10 @@ export default function PortfolioSection() {
                 />
               </div>
               <div className="text-left">
-                <h4 className="text-[18px] font-medium text-[#111111] mb-[6px]">
+                <h4 className="text-[16px] sm:text-[18px] font-medium text-[#1e293b] mb-[4px] sm:mb-[6px]">
                   {project.title}
                 </h4>
-                <p className="text-[13px] text-[#666666] uppercase tracking-[0.05em]">
+                <p className="text-[12px] sm:text-[13px] text-[#64748b] uppercase tracking-[0.05em]">
                   {project.linkText}
                 </p>
               </div>
@@ -211,22 +211,22 @@ export default function PortfolioSection() {
         </div>
 
         {/* CTA Box with Decorative Element */}
-<div className="portfolio-cta relative mt-0 md:mt-32 p-[0.4px] bg-gradient-to-r from-[#d9d9db] via-[#cfcfcf] to-[#bfbfc1] hover:from-[#cfcfcf] hover:via-[#bdbdbf] hover:to-[#a9a9ab] transition-all duration-300 rounded-2xl">
+<div className="portfolio-cta relative mt-[40px] sm:mt-[60px] md:mt-32 p-[2px] bg-gradient-to-r from-[#bae6fd] via-[#7dd3fc] to-[#38bdf8] hover:from-[#7dd3fc] hover:via-[#38bdf8] hover:to-[#0ea5e9] transition-all duration-300 rounded-xl sm:rounded-2xl">
   
   {/* INNER CONTENT BACKGROUND */}
-  <div className="bg-white py-[20px] md:py-[50px] rounded-2xl relative">
+  <div className="bg-white py-[30px] sm:py-[40px] md:py-[50px] px-[15px] sm:px-[20px] rounded-xl sm:rounded-2xl relative">
     
     <div className="text-center max-w-[800px] mx-auto">
-      <p className="text-[18px] md:text-[20px] leading-[1.7] text-[#666666] mb-[35px] px-4">
+      <p className="text-[15px] sm:text-[17px] md:text-[20px] leading-[1.6] sm:leading-[1.7] text-[#64748b] mb-[25px] sm:mb-[35px] px-2 sm:px-4">
         The power of design help us to solve complex problems and cultivate business solutions.
       </p>
 
-      {/* Button with gradient border (already correct) */}
-      <div className="inline-block rounded-full p-[2px] bg-gradient-to-r from-[#d9d9db] via-[#cfcfcf] to-[#bfbfc1] hover:from-[#cfcfcf] hover:to-[#bdbdbf] transition-all duration-300">
+      {/* Button with gradient */}
+      <div className="inline-block">
         <a 
           href="#contact" 
-          className="inline-block bg-[#111111] text-white px-[43px] py-[16px] text-[13px] font-semibold uppercase tracking-[1px] rounded-full hover:bg-[#333333] transition-all duration-300 transform hover:-translate-y-[2px] shadow-sm"
-          style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04), 0 6px 18px rgba(0,0,0,0.10)" }}
+          className="inline-block bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] text-white px-[28px] sm:px-[36px] md:px-[43px] py-[12px] sm:py-[14px] md:py-[16px] text-[11px] sm:text-[12px] md:text-[13px] font-semibold uppercase tracking-[0.5px] sm:tracking-[1px] rounded-full hover:from-[#0284c7] hover:to-[#0369a1] transition-all duration-300 transform hover:-translate-y-[2px] shadow-lg"
+          style={{ boxShadow: "0 8px 25px rgba(14, 165, 233, 0.3)" }}
         >
           Contact Us
         </a>
@@ -234,13 +234,13 @@ export default function PortfolioSection() {
     </div>
 
     {/* Decorative Element */}
-    <div className="absolute bottom-0 right-0 md:right-[5%] w-[103px] h-[103px] opacity-20">
+    <div className="absolute bottom-0 right-2 sm:right-4 md:right-[5%] w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] md:w-[103px] md:h-[103px] opacity-20">
       <img
         src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/svgs/decoration-3-5.svg"
         alt=""
         width={103}
         height={103}
-        className="animate-spin-slow"
+        className="animate-spin-slow w-full h-full"
       />
     </div>
 
