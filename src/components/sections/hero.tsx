@@ -105,7 +105,7 @@ export default function HeroSection() {
                   className={styles.buttons}
                 >
                   <a 
-                    href="/signup" 
+                    href="//signup" 
                     className="btn-round"
                   >
                     <span>Register now</span>
