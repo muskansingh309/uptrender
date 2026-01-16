@@ -61,18 +61,18 @@ export default function Navbar() {
           : "bg-transparent h-[70px] sm:h-[80px] lg:h-[85px]"
       } flex items-center`}
     >
-      <div className="relative w-full max-w-[1860px] mx-auto px-[15px] sm:px-[20px] lg:px-[30px] flex items-center justify-between">
+      <div className="w-full max-w-[1860px] mx-auto px-[15px] sm:px-[20px] lg:px-[30px] flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex-shrink-0">
           <a href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 bg-[#5e87ff] rounded-lg lg:rounded-xl flex items-center justify-center shadow-lg">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-[#ecf2ff] to-[#ecf2ff] rounded-lg lg:rounded-xl flex items-center justify-center shadow-lg">
               <svg width="18" height="18" className="sm:w-[20px] sm:h-[20px] lg:w-[24px] lg:h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M17 7H21V11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
             <span className="text-[18px] sm:text-[20px] lg:text-[22px] font-bold tracking-tight text-[#1e293b]">
-              <span className="text-[#5e87ff]">Up</span>
+              <span className="bg-gradient-to-r from-[#f6e2f] to-[#e2c1f6] bg-clip-text text-transparent">Up</span>
               <span className="text-[#1e293b]">trender</span>
             </span>
           </a>
@@ -90,39 +90,37 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Desktop Navigation Links (centered) */}
-        <div className="hidden lg:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 items-center space-x-[30px] z-20">
-          {/* Centered Nav Box - White Theme like reference image */}
-          <div className="bg-white shadow-lg rounded-full px-8 py-3 border border-gray-100">
-            <ul className="flex items-center list-none m-0 p-0 gap-8">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className={`text-[14px] font-medium tracking-wide transition-all duration-200 ${
-                      activeSection === link.href.substring(1)
-                        ? "text-gray-900"
-                        : "text-gray-500 hover:text-gray-900"
-                    }`}
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Desktop Navigation Links */}
+        <div className="hidden lg:flex items-center space-x-[30px]">
+          <ul className="flex items-center list-none m-0 p-0">
+            {navLinks.map((link) => (
+              <li key={link.name} className="px-[12px]">
+                <a
+                  href={link.href}
+                  className={`text-[14px] font-medium tracking-wide transition-all duration-200 uppercase ${
+                    activeSection === link.href.substring(1)
+                      ? "text-[#ecf2ff]"
+                      : "text-[#1e293b] opacity-70 hover:text-[#ecf2ff] hover:opacity-100"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-          {/* Right Side Items removed from centered container to keep nav items centered */}
-        </div>
-        {/* Desktop Right Side Items (placed outside centered nav box so button sits on the right) */}
-        <div className="hidden lg:flex items-center space-x-[25px]">
-          <a
-            href="/signin"
-            className="inline-flex items-center justify-center border border-[#5e87ff] text-[#5e87ff] text-[12px] font-semibold uppercase tracking-wider rounded-[9px] hover:bg-[#5e87ff] hover:text-white transition-colors duration-200"
-            style={{ paddingLeft: '25px', paddingRight: '25px', paddingTop: '13px', paddingBottom: '13px' }}
-          >
-            Sign In
-          </a>
+          {/* Right Side Items */}
+          <div className="flex items-center space-x-[25px] ml-[20px]">
+           
+
+            {/* CTA Button */}
+            <a
+              href="/signin"
+              className="inline-flex items-center justify-center px-5 py-2 border-2 border-[#ecf2ff] text-[#ecf2ff] text-[12px] font-semibold uppercase tracking-wider rounded-[10px] hover:bg-[#ecf2ff] hover:text-white transition-all duration-300"
+            >
+              Sign In
+            </a>
+          </div>
         </div>
       </div>
 
@@ -157,8 +155,8 @@ export default function Navbar() {
                   onClick={closeMobileMenu}
                   className={`text-[16px] sm:text-[18px] font-medium tracking-wide transition-all duration-200 ${
                     activeSection === link.href.substring(1)
-                      ? "text-[#5e87ff]"
-                      : "text-[#1e293b] opacity-80 hover:text-[#5e87ff]"
+                      ? "text-[#ecf2ff]"
+                      : "text-[#1e293b] opacity-80 hover:text-[#ecf2ff]"
                   }`}
                 >
                   {link.name}
@@ -171,8 +169,7 @@ export default function Navbar() {
             <a
               href="/signin"
               onClick={closeMobileMenu}
-              className="inline-block border border-[#5e87ff] text-[#5e87ff] text-[13px] font-semibold uppercase tracking-wider rounded-[9px] hover:bg-[#5e87ff] hover:text-white transition-colors duration-200"
-              style={{ paddingLeft: '29px', paddingRight: '29px', paddingTop: '17px', paddingBottom: '17px' }}
+              className="inline-block border-2 border-[#ecf2ff] text-[#ecf2ff] px-6 py-3 text-[13px] font-semibold uppercase tracking-wider rounded-[10px] hover:bg-[#ecf2ff] hover:text-white transition-all duration-300"
             >
               Sign In
             </a>

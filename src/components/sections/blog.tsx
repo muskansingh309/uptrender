@@ -83,7 +83,7 @@ const BlogSection = () => {
         {/* Section Header */}
         <div className="flex flex-wrap items-end justify-between mb-[35px] sm:mb-[45px] md:mb-[50px] blog-header">
           <div>
-            <span className="block text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#0ea5e9] mb-[10px] sm:mb-[15px]">
+            <span className="block text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#5e87ff] mb-[10px] sm:mb-[15px]">
               Our Blog
             </span>
             <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-medium tracking-[-0.02em] text-[#1e293b] leading-[1.15]">
@@ -92,7 +92,7 @@ const BlogSection = () => {
           </div>
           <a 
             href="/blog" 
-            className="text-[13px] sm:text-[14px] font-medium text-[#0ea5e9] inline-flex items-center gap-[6px] sm:gap-[8px] hover:gap-[10px] sm:hover:gap-[12px] transition-all duration-300 mt-[16px] sm:mt-[20px] md:mt-0"
+            className="text-[13px] sm:text-[14px] font-medium text-[#5e87ff] inline-flex items-center gap-[6px] sm:gap-[8px] hover:gap-[10px] sm:hover:gap-[12px] transition-all duration-300 mt-[16px] sm:mt-[20px] md:mt-0"
           >
             Read more in our blog
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -118,7 +118,7 @@ const BlogSection = () => {
 
               {/* Content */}
               <div className='border border-[#e0f2fe] rounded-b-[6px] p-[16px] sm:p-[20px] transition-all duration-300 hover:border-[#7dd3fc] hover:shadow-lg'>
-                <h3 className="text-[16px] sm:text-[18px] md:text-[20px] font-medium leading-[1.4] text-[#1e293b] mb-[12px] sm:mb-[15px] transition-colors duration-300 group-hover:text-[#0ea5e9]">
+                <h3 className="text-[16px] sm:text-[18px] md:text-[20px] font-medium leading-[1.4] text-[#1e293b] mb-[12px] sm:mb-[15px] transition-colors duration-300 group-hover:text-[#5e87ff]">
                   <a href="#">{post.title}</a>
                 </h3>
                 <p className="text-[14px] sm:text-[15px] leading-[1.65] sm:leading-[1.7] text-[#64748b] mb-[16px] sm:mb-[20px]">

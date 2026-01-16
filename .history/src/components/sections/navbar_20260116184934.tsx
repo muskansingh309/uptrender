@@ -61,7 +61,7 @@ export default function Navbar() {
           : "bg-transparent h-[70px] sm:h-[80px] lg:h-[85px]"
       } flex items-center`}
     >
-      <div className="relative w-full max-w-[1860px] mx-auto px-[15px] sm:px-[20px] lg:px-[30px] flex items-center justify-between">
+      <div className="w-full max-w-[1860px] mx-auto px-[15px] sm:px-[20px] lg:px-[30px] flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex-shrink-0">
           <a href="/" className="flex items-center gap-2">
@@ -90,8 +90,8 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Desktop Navigation Links (centered) */}
-        <div className="hidden lg:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 items-center space-x-[30px] z-20">
+        {/* Desktop Navigation Links */}
+        <div className="hidden lg:flex items-center space-x-[30px]">
           {/* Centered Nav Box - White Theme like reference image */}
           <div className="bg-white shadow-lg rounded-full px-8 py-3 border border-gray-100">
             <ul className="flex items-center list-none m-0 p-0 gap-8">
@@ -112,17 +112,16 @@ export default function Navbar() {
             </ul>
           </div>
 
-          {/* Right Side Items removed from centered container to keep nav items centered */}
-        </div>
-        {/* Desktop Right Side Items (placed outside centered nav box so button sits on the right) */}
-        <div className="hidden lg:flex items-center space-x-[25px]">
-          <a
-            href="/signin"
-            className="inline-flex items-center justify-center border border-[#5e87ff] text-[#5e87ff] text-[12px] font-semibold uppercase tracking-wider rounded-[9px] hover:bg-[#5e87ff] hover:text-white transition-colors duration-200"
-            style={{ paddingLeft: '25px', paddingRight: '25px', paddingTop: '13px', paddingBottom: '13px' }}
-          >
-            Sign In
-          </a>
+          {/* Right Side Items */}
+          <div className="flex items-center space-x-[25px] ml-[20px]">
+            {/* CTA Button */}
+            <a
+              href="/signin"
+              className="inline-flex items-center justify-center px-5 py-2 bg-[#5e87ff] text-white text-[12px] font-semibold uppercase tracking-wider rounded-full hover:bg-[#4a73eb] transition-all duration-300 shadow-md"
+            >
+              Sign In
+            </a>
+          </div>
         </div>
       </div>
 
@@ -171,8 +170,7 @@ export default function Navbar() {
             <a
               href="/signin"
               onClick={closeMobileMenu}
-              className="inline-block border border-[#5e87ff] text-[#5e87ff] text-[13px] font-semibold uppercase tracking-wider rounded-[9px] hover:bg-[#5e87ff] hover:text-white transition-colors duration-200"
-              style={{ paddingLeft: '29px', paddingRight: '29px', paddingTop: '17px', paddingBottom: '17px' }}
+              className="inline-block border-2 border-[#5e87ff] text-[#5e87ff] px-6 py-3 text-[13px] font-semibold uppercase tracking-wider rounded-[10px] hover:bg-[#5e87ff] hover:text-white transition-all duration-300"
             >
               Sign In
             </a>

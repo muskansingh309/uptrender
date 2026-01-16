@@ -148,7 +148,7 @@ export default function PortfolioSection() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-[40px] sm:mb-[50px] md:mb-[60px] gap-y-4">
           <div className="max-w-[600px] portfolio-header">
             <span 
-              className="caption tracking-[0.15em] sm:tracking-[0.2em] text-[11px] sm:text-[12px] font-semibold text-[#0ea5e9] uppercase mb-3 sm:mb-4 block"
+              className="caption tracking-[0.15em] sm:tracking-[0.2em] text-[11px] sm:text-[12px] font-semibold text-[#5e87ff] uppercase mb-3 sm:mb-4 block"
             >
               Our Portfolio
             </span>
@@ -167,8 +167,8 @@ export default function PortfolioSection() {
                 onClick={() => setActiveFilter(cat)}
                 className={`text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.5px] sm:tracking-[1px] transition-colors duration-300 relative pb-1 ${
                   activeFilter === cat 
-                    ? "text-[#0ea5e9] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-[#0ea5e9] after:to-[#0284c7]" 
-                    : "text-[#64748b] hover:text-[#0ea5e9]"
+                    ? "text-[#5e87ff] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-[#5e87ff] after:to-[#5e87ff]" 
+                    : "text-[#64748b] hover:text-[#5e87ff]"
                 }`}
               >
                 {cat}
@@ -213,7 +213,7 @@ export default function PortfolioSection() {
         </div>
 
         {/* CTA Box with Decorative Element */}
-<div className="portfolio-cta relative mt-[40px] sm:mt-[60px] md:mt-32 p-[2px] bg-gradient-to-r from-[#bae6fd] via-[#7dd3fc] to-[#38bdf8] hover:from-[#7dd3fc] hover:via-[#38bdf8] hover:to-[#0ea5e9] transition-all duration-300 rounded-xl sm:rounded-2xl">
+<div className="portfolio-cta relative mt-[40px] sm:mt-[60px] md:mt-32 p-[2px] bg-gradient-to-r from-[#bae6fd] via-[#7dd3fc] to-[#38bdf8] hover:from-[#7dd3fc] hover:via-[#38bdf8] hover:to-[#5e87ff] transition-all duration-300 rounded-xl sm:rounded-2xl">
   
   {/* INNER CONTENT BACKGROUND */}
   <div className="bg-white py-[30px] sm:py-[40px] md:py-[50px] px-[15px] sm:px-[20px] rounded-xl sm:rounded-2xl relative">
@@ -227,7 +227,7 @@ export default function PortfolioSection() {
       <div className="inline-block">
         <a 
           href="#contact" 
-          className="inline-block bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] text-white px-[28px] sm:px-[36px] md:px-[43px] py-[12px] sm:py-[14px] md:py-[16px] text-[11px] sm:text-[12px] md:text-[13px] font-semibold uppercase tracking-[0.5px] sm:tracking-[1px] rounded-full hover:from-[#0284c7] hover:to-[#0369a1] transition-all duration-300 transform hover:-translate-y-[2px] shadow-lg"
+          className="inline-block bg-gradient-to-r from-[#5e87ff] to-[#5e87ff] text-white px-[28px] sm:px-[36px] md:px-[43px] py-[12px] sm:py-[14px] md:py-[16px] text-[11px] sm:text-[12px] md:text-[13px] font-semibold uppercase tracking-[0.5px] sm:tracking-[1px] rounded-full hover:from-[#5e87ff] hover:to-[#5e87ff] transition-all duration-300 transform hover:-translate-y-[2px] shadow-lg"
           style={{ boxShadow: "0 8px 25px rgba(14, 165, 233, 0.3)" }}
         >
           Contact Us

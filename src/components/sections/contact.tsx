@@ -336,7 +336,7 @@ export default function ContactSection() {
         }
         .submit-btn {
           padding: 18px 35px;
-          background: linear-gradient(90deg, #0ea5e9 0%, #0284c7 100%);
+          background: linear-gradient(90deg, #5e87ff 0%, #5e87ff 100%);
           color: white;
           font-size: 12px;
           font-weight: 600;

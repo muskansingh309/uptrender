@@ -95,7 +95,7 @@ const AboutSection: React.FC = () => {
         {/* Header Row */}
         <div className="flex flex-wrap mb-[40px] sm:mb-[60px] md:mb-[80px]">
           <div className="w-full md:w-1/2">
-            <span className="caption mb-[8px] sm:mb-[10px] md:mb-[15px] about-caption text-[#0ea5e9]">Our VISION</span>
+            <span className="caption mb-[8px] sm:mb-[10px] md:mb-[15px] about-caption text-[#5e87ff]">Our VISION</span>
             <h3 className="section-title text-[22px] sm:text-[26px] md:text-[30px] font-medium leading-[1.2] tracking-[-0.02em] text-[#1e293b] mb-0 about-title">
               A world where AI automation scales every trader's portfolio across global multi-market opportunities.
             </h3>
@@ -120,10 +120,10 @@ const AboutSection: React.FC = () => {
               href="#team" 
               className="inline-flex items-center gap-2 group relative py-1 about-link"
             >
-              {/* <span className="text-[13px] sm:text-[14px] font-semibold uppercase tracking-[1px] text-[#0ea5e9] border-b border-[#0ea5e9] transition-all duration-300 group-hover:border-transparent">
+              {/* <span className="text-[13px] sm:text-[14px] font-semibold uppercase tracking-[1px] text-[#5e87ff] border-b border-[#5e87ff] transition-all duration-300 group-hover:border-transparent">
                 Learn more about us
               </span> */}
-              {/* <ArrowRight className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px] text-[#0ea5e9]" strokeWidth={2} /> */}
+              {/* <ArrowRight className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px] text-[#5e87ff]" strokeWidth={2} /> */}
             </a>
           </div>
         </div>

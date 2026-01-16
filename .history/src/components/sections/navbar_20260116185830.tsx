@@ -171,8 +171,7 @@ export default function Navbar() {
             <a
               href="/signin"
               onClick={closeMobileMenu}
-              className="inline-block border border-[#5e87ff] text-[#5e87ff] text-[13px] font-semibold uppercase tracking-wider rounded-[9px] hover:bg-[#5e87ff] hover:text-white transition-colors duration-200"
-              style={{ paddingLeft: '29px', paddingRight: '29px', paddingTop: '17px', paddingBottom: '17px' }}
+              className="inline-block border border-[#5e87ff] text-[#5e87ff] px-6 py-3 text-[13px] font-semibold uppercase tracking-wider rounded-[9px] hover:bg-[#5e87ff] hover:text-white transition-colors duration-200"
             >
               Sign In
             </a>

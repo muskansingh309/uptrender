@@ -189,7 +189,7 @@ export default function BlogPage() {
               </h1>
 
               {/* Author & Date */}
-              <div className="flex items-center gap-2 text-[14px] text-[#0ea5e9] mb-6">
+              <div className="flex items-center gap-2 text-[14px] text-[#5e87ff] mb-6">
                 <User className="w-4 h-4" />
                 <span className="font-medium">{selectedPost.author}</span>
                 <span className="text-[#ccc] mx-2">•</span>
@@ -231,8 +231,8 @@ export default function BlogPage() {
 
                     {/* Info */}
                     <div className="flex-1 flex flex-col justify-center">
-                      <h4 className={`text-[14px] sm:text-[15px] font-semibold leading-[1.4] mb-1 group-hover:text-[#0ea5e9] transition-colors duration-300 line-clamp-2 ${
-                        selectedPost.id === post.id ? 'text-[#0ea5e9]' : 'text-[#111]'
+                      <h4 className={`text-[14px] sm:text-[15px] font-semibold leading-[1.4] mb-1 group-hover:text-[#5e87ff] transition-colors duration-300 line-clamp-2 ${
+                        selectedPost.id === post.id ? 'text-[#5e87ff]' : 'text-[#111]'
                       }`}>
                         {post.title}
                       </h4>
@@ -247,7 +247,7 @@ export default function BlogPage() {
                 {hasPrev ? (
                   <button
                     onClick={handlePrevPage}
-                    className="py-2 px-3 bg-white border border-[#e6f6ff] text-[#0ea5e9] text-[14px] font-semibold rounded-[8px] hover:bg-[#eef9ff] transition-colors duration-200"
+                    className="py-2 px-3 bg-white border border-[#e6f6ff] text-[#5e87ff] text-[14px] font-semibold rounded-[8px] hover:bg-[#eef9ff] transition-colors duration-200"
                   >
                     Previous
                   </button>
@@ -261,7 +261,7 @@ export default function BlogPage() {
                   <div>
                     <button
                       onClick={handleNextPage}
-                      className="py-2 px-6 bg-white border-2 border-[#0ea5e9] text-[#0ea5e9] text-[14px] font-semibold rounded-[8px] hover:bg-[#0ea5e9] hover:text-white transition-all duration-300"
+                      className="py-2 px-6 bg-white border-2 border-[#5e87ff] text-[#5e87ff] text-[14px] font-semibold rounded-[8px] hover:bg-[#5e87ff] hover:text-white transition-all duration-300"
                     >
                       Load More
                     </button>

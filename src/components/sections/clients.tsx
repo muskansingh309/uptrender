@@ -79,7 +79,7 @@ const Clients: React.FC = () => {
       <div className="container mx-auto px-[15px] max-w-[1200px]">
         {/* Section Heading */}
         <div className="text-center mb-[40px] clients-heading">
-          <h2 className="text-[14px] font-semibold text-[#0ea5e9] tracking-[0.05em]">
+          <h2 className="text-[14px] font-semibold text-[#5e87ff] tracking-[0.05em]">
             Trusted by Leading Companies
           </h2>
         </div>

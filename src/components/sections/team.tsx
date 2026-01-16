@@ -100,7 +100,7 @@ const TeamSection: React.FC = () => {
           {/* Blockquote Left */}
           <div className="w-full lg:w-1/2 px-[15px] mb-[40px] lg:mb-0 flex items-center team-blockquote">
             <blockquote className="m-0 relative pl-0">
-              <div className="w-[42px] h-[42px] sm:w-[50px] sm:h-[50px] bg-gradient-to-br from-[#0ea5e9] to-[#0284c7] rounded-full flex items-center justify-center mb-[8px] sm:mb-[10px] shadow-lg">
+              <div className="w-[42px] h-[42px] sm:w-[50px] sm:h-[50px] bg-gradient-to-br from-[#5e87ff] to-[#5e87ff] rounded-full flex items-center justify-center mb-[8px] sm:mb-[10px] shadow-lg">
                 <span className="text-[36px] sm:text-[44px] leading-none text-white pt-[16px] sm:pt-[20px]">"</span>
               </div>
 
@@ -108,7 +108,7 @@ const TeamSection: React.FC = () => {
                 We are strong team who brings innovative ideas into production.
               </p>
               <footer className="mt-[16px] sm:mt-[20px]">
-                <div className="w-[32px] sm:w-[40px] h-[2px] bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] mb-[12px] sm:mb-[15px]"></div>
+                <div className="w-[32px] sm:w-[40px] h-[2px] bg-gradient-to-r from-[#5e87ff] to-[#5e87ff] mb-[12px] sm:mb-[15px]"></div>
                 <div className="text-[13px] sm:text-[15px] font-semibold text-[#1e293b] uppercase tracking-[1px]">
                   Harish Sharma
                 </div>
@@ -137,13 +137,13 @@ const TeamSection: React.FC = () => {
                       />
                       {/* Social Links Overlay */}
                       <div className="absolute inset-x-0 bottom-0 py-[12px] sm:py-[15px] translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-white/90 flex justify-center gap-x-[12px] sm:gap-x-[15px]">
-                        <a href="#" className="text-[#0ea5e9] hover:text-[#0284c7] transition-colors">
+                        <a href="#" className="text-[#5e87ff] hover:text-[#5e87ff] transition-colors">
                           <Facebook size={14} />
                         </a>
-                        <a href="#" className="text-[#0ea5e9] hover:text-[#0284c7] transition-colors">
+                        <a href="#" className="text-[#5e87ff] hover:text-[#5e87ff] transition-colors">
                           <Twitter size={14} />
                         </a>
-                        <a href="#" className="text-[#0ea5e9] hover:text-[#0284c7] transition-colors">
+                        <a href="#" className="text-[#5e87ff] hover:text-[#5e87ff] transition-colors">
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.44 7.63 11.25.12.02.24.03.37.03.45 0 .81-.36.81-.81v-1.12c-3.33.72-4.03-1.61-4.03-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48 1 .11-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23.96-.27 1.99-.4 3.02-.4 1.03 0 2.06.13 3.02.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.3c0 .45.36.81.81.81.13 0 .25-.01.37-.03 4.47-1.81 7.63-6.17 7.63-11.25 0-6.63-5.37-12-12-12z" />
                           </svg>
@@ -167,7 +167,7 @@ const TeamSection: React.FC = () => {
             <div className="flex items-center gap-x-[12px] sm:gap-x-[15px] mt-[30px] sm:mt-[40px] lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:inset-x-0 lg:justify-between px-[15px] sm:px-[30px] pointer-events-none justify-center lg:mt-0">
               <button 
                 onClick={handlePrev}
-                className="w-[40px] h-[40px] sm:w-[44px] sm:h-[44px] flex items-center justify-center rounded-full bg-white text-[#1e293b] border border-[#e0f2fe] hover:bg-gradient-to-r hover:from-[#0ea5e9] hover:to-[#0284c7] hover:text-white hover:border-transparent transition-all pointer-events-auto shadow-sm"
+                className="w-[40px] h-[40px] sm:w-[44px] sm:h-[44px] flex items-center justify-center rounded-full bg-white text-[#1e293b] border border-[#e0f2fe] hover:bg-gradient-to-r hover:from-[#5e87ff] hover:to-[#5e87ff] hover:text-white hover:border-transparent transition-all pointer-events-auto shadow-sm"
                 aria-label="Previous Slide"
               >
                 <MoveLeft size={16} className="sm:hidden" />
@@ -175,7 +175,7 @@ const TeamSection: React.FC = () => {
               </button>
               <button 
                 onClick={handleNext}
-                className="w-[40px] h-[40px] sm:w-[44px] sm:h-[44px] flex items-center justify-center rounded-full bg-white text-[#1e293b] border border-[#e0f2fe] hover:bg-gradient-to-r hover:from-[#0ea5e9] hover:to-[#0284c7] hover:text-white hover:border-transparent transition-all pointer-events-auto shadow-sm"
+                className="w-[40px] h-[40px] sm:w-[44px] sm:h-[44px] flex items-center justify-center rounded-full bg-white text-[#1e293b] border border-[#e0f2fe] hover:bg-gradient-to-r hover:from-[#5e87ff] hover:to-[#5e87ff] hover:text-white hover:border-transparent transition-all pointer-events-auto shadow-sm"
                 aria-label="Next Slide"
               >
                 <MoveRight size={16} className="sm:hidden" />

@@ -5,11 +5,11 @@
   overflow: hidden;
   width: 100%;
   max-width: 100vw;
-  background-color: #eceaea;
+  background-color: #de373d;
   min-height: 100vh;
   box-sizing: border-box;
   /* Single responsive background image (removed decorative SVG) */
-  background-image: url('/bg-uptrender.svg');
+  background-image: url('');
   background-repeat: no-repeat;
   background-position: center center;
   /* make hero image cover viewport responsively */

@@ -107,7 +107,7 @@ export default function Testimonials() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e293b] leading-tight mb-4 sm:mb-6">
             Trusted by{' '}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#5e87ff] to-[#5e87ff] bg-clip-text text-transparent">
                 10,000+
               </span>
               <svg 
@@ -124,8 +124,8 @@ export default function Testimonials() {
                 />
                 <defs>
                   <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#0ea5e9" />
-                    <stop offset="100%" stopColor="#0284c7" />
+                    <stop offset="0%" stopColor="#5e87ff" />
+                    <stop offset="100%" stopColor="#5e87ff" />
                   </linearGradient>
                 </defs>
               </svg>

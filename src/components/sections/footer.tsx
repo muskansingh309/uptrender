@@ -65,7 +65,7 @@ export default function Footer() {
             <div className="footer-brand">
                 <div className="footer-logo">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-gradient-to-br from-[#0ea5e9] to-[#0284c7] rounded-lg flex items-center justify-center shadow-sm">
+                    <div className="w-9 h-9 bg-gradient-to-br from-[#5e87ff] to-[#5e87ff] rounded-lg flex items-center justify-center shadow-sm">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
@@ -216,7 +216,7 @@ export default function Footer() {
           font-weight: 500;
           transition: color 0.3s;
         }
-        .contact-line a:hover { color: #0ea5e9; }
+        .contact-line a:hover { color: #5e87ff; }
         .column-title {
           font-size: 14px;
           font-weight: 600;
@@ -257,7 +257,7 @@ export default function Footer() {
             gap: 12px;
           }
         }
-        .footer-links a:hover { color: #0ea5e9; }
+        .footer-links a:hover { color: #5e87ff; }
         .footer-bottom {
           display: flex;
           flex-direction: column;
@@ -304,7 +304,7 @@ export default function Footer() {
           }
         }
         .scroll-top-btn:hover {
-          background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+          background: linear-gradient(135deg, #5e87ff 0%, #5e87ff 100%);
           color: white;
           border-color: transparent;
         }

@@ -112,17 +112,16 @@ export default function Navbar() {
             </ul>
           </div>
 
-          {/* Right Side Items removed from centered container to keep nav items centered */}
-        </div>
-        {/* Desktop Right Side Items (placed outside centered nav box so button sits on the right) */}
-        <div className="hidden lg:flex items-center space-x-[25px]">
-          <a
-            href="/signin"
-            className="inline-flex items-center justify-center border border-[#5e87ff] text-[#5e87ff] text-[12px] font-semibold uppercase tracking-wider rounded-[9px] hover:bg-[#5e87ff] hover:text-white transition-colors duration-200"
-            style={{ paddingLeft: '25px', paddingRight: '25px', paddingTop: '13px', paddingBottom: '13px' }}
-          >
-            Sign In
-          </a>
+          {/* Right Side Items */}
+          <div className="flex items-center space-x-[25px] ml-auto">
+            {/* CTA Button */}
+            <a
+              href="/signin"
+              className="inline-flex items-center justify-center px-5 py-2 border border-[#5e87ff] text-[#5e87ff] text-[12px] font-semibold uppercase tracking-wider rounded-[9px] hover:bg-[#5e87ff] hover:text-white transition-colors duration-200"
+            >
+              Sign In
+            </a>
+          </div>
         </div>
       </div>
 
@@ -171,8 +170,7 @@ export default function Navbar() {
             <a
               href="/signin"
               onClick={closeMobileMenu}
-              className="inline-block border border-[#5e87ff] text-[#5e87ff] text-[13px] font-semibold uppercase tracking-wider rounded-[9px] hover:bg-[#5e87ff] hover:text-white transition-colors duration-200"
-              style={{ paddingLeft: '29px', paddingRight: '29px', paddingTop: '17px', paddingBottom: '17px' }}
+              className="inline-block border-2 border-[#5e87ff] text-[#5e87ff] px-6 py-3 text-[13px] font-semibold uppercase tracking-wider rounded-[10px] hover:bg-[#5e87ff] hover:text-white transition-all duration-300"
             >
               Sign In
             </a>

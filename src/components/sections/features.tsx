@@ -113,7 +113,7 @@ export default function FeaturesSection() {
       <div className="container mx-auto px-6 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
-          <span className="inline-block text-[#0ea5e9] font-bold text-sm md:text-base uppercase tracking-wider mb-4">
+          <span className="inline-block text-[#5e87ff] font-bold text-sm md:text-base uppercase tracking-wider mb-4">
             Features
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -173,14 +173,14 @@ export default function FeaturesSection() {
                     </div>
                     
                     {/* Decorative elements */}
-                    <div className="absolute -top-4 -right-4 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#0ea5e9]/10 -z-10"></div>
-                    <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-[#0ea5e9]/5 -z-10"></div>
+                    <div className="absolute -top-4 -right-4 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#5e87ff]/10 -z-10"></div>
+                    <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-[#5e87ff]/5 -z-10"></div>
                   </div>
                 </div>
 
                 {/* Content Side */}
                 <div className="feature-content w-full lg:w-7/12 xl:w-3/5 text-center lg:text-left px-4 sm:px-0">
-                  <span className="inline-block text-[#0ea5e9] font-bold text-sm md:text-base uppercase tracking-wider mb-4">
+                  <span className="inline-block text-[#5e87ff] font-bold text-sm md:text-base uppercase tracking-wider mb-4">
                     {feature.tagline}
                   </span>
                   <h3 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
@@ -192,7 +192,7 @@ export default function FeaturesSection() {
                   <div className="flex flex-col gap-3 sm:gap-4">
                     {feature.features.map((item, idx) => (
                       <div key={idx} className="flex items-center gap-3 sm:gap-4 justify-start lg:justify-start">
-                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#0ea5e9] flex items-center justify-center shrink-0">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#5e87ff] flex items-center justify-center shrink-0">
                           <Check className="w-3 h-3 sm:w-4 sm:h-4 text-white" strokeWidth={3} />
                         </div>
                         <span className="text-gray-800 font-semibold text-sm sm:text-base md:text-lg">{item}</span>

@@ -66,7 +66,7 @@ export default function SignUpPage() {
   return (
     <div className="min-h-screen bg-[#fafbfc] flex">
       {/* Left Side - Decorative */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#0ea5e9] to-[#0284c7] relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#5e87ff] to-[#5e87ff] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-32 right-20 w-80 h-80 border border-white/30 rounded-full"></div>
           <div className="absolute bottom-20 left-10 w-64 h-64 border border-white/20 rounded-full"></div>
@@ -126,14 +126,14 @@ export default function SignUpPage() {
         <div className="w-full max-w-[420px]">
           {/* Mobile Logo */}
           <Link href="/" className="signup-logo flex items-center gap-2 mb-8 lg:hidden">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#0ea5e9] to-[#0284c7] rounded-xl flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#5e87ff] to-[#5e87ff] rounded-xl flex items-center justify-center shadow-lg">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M17 7H21V11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
             <span className="text-xl font-bold text-[#1e293b]">
-              <span className="text-[#0ea5e9]">Up</span>trender
+              <span className="text-[#5e87ff]">Up</span>trender
             </span>
           </Link>
 
@@ -158,7 +158,7 @@ export default function SignUpPage() {
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   placeholder="John Doe"
                   required
-                  className="w-full pl-12 pr-4 py-3.5 bg-white border border-[#e5e7eb] rounded-xl text-[15px] text-[#111] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/10 transition-all"
+                  className="w-full pl-12 pr-4 py-3.5 bg-white border border-[#e5e7eb] rounded-xl text-[15px] text-[#111] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#5e87ff] focus:ring-2 focus:ring-[#5e87ff]/10 transition-all"
                 />
               </div>
             </div>
@@ -176,7 +176,7 @@ export default function SignUpPage() {
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   placeholder="you@example.com"
                   required
-                  className="w-full pl-12 pr-4 py-3.5 bg-white border border-[#e5e7eb] rounded-xl text-[15px] text-[#111] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/10 transition-all"
+                  className="w-full pl-12 pr-4 py-3.5 bg-white border border-[#e5e7eb] rounded-xl text-[15px] text-[#111] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#5e87ff] focus:ring-2 focus:ring-[#5e87ff]/10 transition-all"
                 />
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function SignUpPage() {
                   placeholder="Create a password"
                   required
                   minLength={8}
-                  className="w-full pl-12 pr-12 py-3.5 bg-white border border-[#e5e7eb] rounded-xl text-[15px] text-[#111] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/10 transition-all"
+                  className="w-full pl-12 pr-12 py-3.5 bg-white border border-[#e5e7eb] rounded-xl text-[15px] text-[#111] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#5e87ff] focus:ring-2 focus:ring-[#5e87ff]/10 transition-all"
                 />
                 <button
                   type="button"
@@ -221,7 +221,7 @@ export default function SignUpPage() {
                   onChange={(e) => setFormData({...formData, confirmPassword: e.target.value})}
                   placeholder="Confirm your password"
                   required
-                  className="w-full pl-12 pr-12 py-3.5 bg-white border border-[#e5e7eb] rounded-xl text-[15px] text-[#111] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/10 transition-all"
+                  className="w-full pl-12 pr-12 py-3.5 bg-white border border-[#e5e7eb] rounded-xl text-[15px] text-[#111] placeholder:text-[#9ca3af] focus:outline-none focus:border-[#5e87ff] focus:ring-2 focus:ring-[#5e87ff]/10 transition-all"
                 />
                 <button
                   type="button"
@@ -239,20 +239,20 @@ export default function SignUpPage() {
                 type="checkbox"
                 id="terms"
                 required
-                className="mt-0.5 w-4 h-4 rounded border-[#d1d5db] text-[#0ea5e9] focus:ring-[#0ea5e9]/20"
+                className="mt-0.5 w-4 h-4 rounded border-[#d1d5db] text-[#5e87ff] focus:ring-[#5e87ff]/20"
               />
               <label htmlFor="terms" className="text-[13px] text-[#64748b] leading-relaxed">
                 I agree to the{' '}
-                <Link href="/terms" className="text-[#0ea5e9] hover:text-[#0284c7]">Terms of Service</Link>
+                <Link href="/terms" className="text-[#5e87ff] hover:text-[#5e87ff]">Terms of Service</Link>
                 {' '}and{' '}
-                <Link href="/privacy" className="text-[#0ea5e9] hover:text-[#0284c7]">Privacy Policy</Link>
+                <Link href="/privacy" className="text-[#5e87ff] hover:text-[#5e87ff]">Privacy Policy</Link>
               </label>
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3.5 bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] hover:from-[#0284c7] hover:to-[#0369a1] text-white text-[14px] font-semibold rounded-xl shadow-lg shadow-[#0ea5e9]/25 transition-all duration-300 mt-2"
+              className="w-full py-3.5 bg-gradient-to-r from-[#5e87ff] to-[#5e87ff] hover:from-[#5e87ff] hover:to-[#5e87ff] text-white text-[14px] font-semibold rounded-xl shadow-lg shadow-[#5e87ff]/25 transition-all duration-300 mt-2"
             >
               Create Account
             </button>
@@ -296,7 +296,7 @@ export default function SignUpPage() {
           {/* Sign In Link */}
           <p className="mt-8 text-center text-[14px] text-[#64748b]">
             Already have an account?{' '}
-            <Link href="/signin" className="text-[#0ea5e9] hover:text-[#0284c7] font-semibold">
+            <Link href="/signin" className="text-[#5e87ff] hover:text-[#5e87ff] font-semibold">
               Sign in
             </Link>
           </p>
