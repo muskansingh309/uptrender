@@ -26,8 +26,8 @@ const featuresData: FeatureCard[] = [
     title: 'Build Your Copy Trading Network for Indian Stocks, Forex & Crypto',
     description: 'From selecting verified master traders to monitoring real-time performance, to scaling passive income—everything for automated copy trading is built right in.',
     features: ['Master Account Setup', 'Real-Time Trade Mirroring', 'Multi-Account Management'],
-    mockupImage: 'http://localhost:3000/_next/image?url=https%3A%2F%2Fslelguoygbfzlpylpxfs.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Ftest-clones%2F15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app%2Fassets%2Fimages%2Fimages_10.png&w=3840&q=75',
-    screenContent: 'http://localhost:3000/_next/image?url=https%3A%2F%2Fslelguoygbfzlpylpxfs.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Ftest-clones%2F15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app%2Fassets%2Fimages%2Fimages_14.png&w=3840&q=75',
+    mockupImage: 'https://img.freepik.com/premium-photo/positive-bar-graph-png-3d-rendered-sticker-transparent-background_53876-1048759.jpg?semt=ais_hybrid&w=740&q=80',
+    screenContent: 'https://static.tradingview.com/static/bundles/lightweight-charts.5c935e728656427cb801.jpg',
     contentType: 'image',
     imagePosition: 'left',
   },
@@ -37,9 +37,9 @@ const featuresData: FeatureCard[] = [
     title: "India's First Algo Dashboard for Indian, Forex & Crypto Trading",
     description: 'From building multi-market strategies to backtesting on unified data, to deploying live algo trades without switching platforms—trade the world from one AI platform.',
     features: ['Indian Stock Markets', 'Forex Trading Pairs', 'Crypto Assets'],
-    mockupImage: '/iphone.png',
-    screenContent: '/chart.mov',
-    contentType: 'video',
+    mockupImage: 'https://img.freepik.com/free-photo/dynamic-data-visualization-3d_23-2151904311.jpg?semt=ais_hybrid&w=740&q=80',
+    screenContent: 'https://www.smartdraw.com/chart/img/clustered-bar-chart.png',
+    contentType: 'image',
     imagePosition: 'right',
   },
   {
@@ -48,8 +48,8 @@ const featuresData: FeatureCard[] = [
     title: 'No-Code AI Algo Strategy Builder for Multi-Market Trading',
     description: 'Build, test, and automate trading strategies with AI—no coding needed. Trade Indian stocks, Forex, and Crypto from one smart algo dashboard.',
     features: ['No-Code AI Builder', 'Paper & Live Trading', 'Multi-Market Automation'],
-    mockupImage: '/iphone.png',
-    screenContent: 'http://localhost:3000/_next/image?url=https%3A%2F%2Fslelguoygbfzlpylpxfs.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Ftest-clones%2F15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app%2Fassets%2Fimages%2Fimages_10.png&w=3840&q=75',
+    mockupImage: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A347ece48-0f69-11e9-a3aa-118c761d2745?source=ig',
+    screenContent: 'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/image/rDtN98Qoishumwih/blue-bar-chart-shows-increased-profit_Myo_tQwO_thumb.jpg',
     contentType: 'image',
     imagePosition: 'left',
   },
@@ -182,18 +182,28 @@ export default function FeaturesSection() {
                     {/* Second Image - Foreground Layer */}
                     <div className="feature-image-2 absolute bottom-0 right-0 w-[65%] h-[70%] rounded-[24px] overflow-hidden shadow-2xl border-4 border-white z-20">
                       {feature.contentType === 'video' ? (
-                        <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center">
-                          <div className="text-center">
-                            <div className="w-20 h-20 mx-auto rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg mb-4">
-                              <div className="w-0 h-0 border-t-[14px] border-t-transparent border-l-[22px] border-l-white border-b-[14px] border-b-transparent ml-1"></div>
+                        feature.mockupImage ? (
+                          <Image
+                            src={feature.mockupImage}
+                            alt={`${feature.tagline} mockup`}
+                            fill
+                            className="object-cover scale-110 brightness-105"
+                            unoptimized
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center">
+                            <div className="text-center">
+                              <div className="w-20 h-20 mx-auto rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg mb-4">
+                                <div className="w-0 h-0 border-t-[14px] border-t-transparent border-l-[22px] border-l-white border-b-[14px] border-b-transparent ml-1"></div>
+                              </div>
+                              <p className="text-white font-semibold text-lg">Watch Demo</p>
                             </div>
-                            <p className="text-white font-semibold text-lg">Watch Demo</p>
                           </div>
-                        </div>
+                        )
                       ) : (
                         <Image
-                          src={feature.screenContent}
-                          alt={`${feature.tagline} detail`}
+                          src={feature.mockupImage}
+                          alt={`${feature.tagline} mockup`}
                           fill
                           className="object-cover scale-110 brightness-105"
                           unoptimized

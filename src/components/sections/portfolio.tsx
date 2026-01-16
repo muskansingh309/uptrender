@@ -191,6 +191,8 @@ export default function PortfolioSection() {
                   src={project.imageUrl}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <a 
                   href="#" 
@@ -241,6 +243,8 @@ export default function PortfolioSection() {
         width={103}
         height={103}
         className="animate-spin-slow w-full h-full"
+        loading="lazy"
+        decoding="async"
       />
     </div>
 

@@ -144,7 +144,6 @@ const AboutSection: React.FC = () => {
                   src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/15c28d76-b879-403c-95c1-726d0b61c6f0-resonance-next-app-vercel-app/assets/images/images_10.png"
                   fill
                   className="object-cover"
-                  priority
                 />
               </div>
               

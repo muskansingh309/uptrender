@@ -177,6 +177,8 @@ export default function BlogPage() {
                     src={selectedPost.image}
                     alt={selectedPost.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </figure>
               </Link>
@@ -217,11 +219,13 @@ export default function BlogPage() {
                     onClick={() => handlePostClick(post)}
                   >
                     {/* Thumbnail */}
-                    <div className="w-[90px] h-[90px] rounded-[6px] overflow-hidden flex-shrink-0 bg-[#f5f5f5]">
+                      <div className="w-[90px] h-[90px] rounded-[6px] overflow-hidden flex-shrink-0 bg-[#f5f5f5]">
                       <img
                         src={post.image}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
 
