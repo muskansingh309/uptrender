@@ -101,8 +101,8 @@ export default function Navbar() {
                     href={link.href}
                     className={`text-[14px] font-medium tracking-wide transition-all duration-200 ${
                       activeSection === link.href.substring(1)
-                        ? "text-gray-900"
-                        : "text-gray-500 hover:text-gray-900"
+                        ? "text-[#5e87ff]"
+                        : "text-gray-500 hover:text-#5e87ff"
                     }`}
                   >
                     {link.name}
@@ -119,7 +119,7 @@ export default function Navbar() {
           <a
             href="/signin"
             className="inline-flex items-center justify-center border border-[#5e87ff] text-[#5e87ff] text-[12px] font-semibold uppercase tracking-wider rounded-[9px] hover:bg-[#5e87ff] hover:text-white transition-colors duration-200"
-            style={{ paddingLeft: '25px', paddingRight: '25px', paddingTop: '13px', paddingBottom: '13px' }}
+            style={{ paddingLeft: '25px', paddingRight: '25px', paddingTop: '10px', paddingBottom: '10px' }}
           >
             Sign In
           </a>

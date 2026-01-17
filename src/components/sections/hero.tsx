@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowDown, Play } from 'lucide-react';
 import gsap from 'gsap';
 import styles from './hero.module.css';
@@ -14,6 +14,9 @@ export default function HeroSection() {
   const mockupContainerRef = useRef<HTMLDivElement>(null);
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
+
+  const [desktopVideoLoaded, setDesktopVideoLoaded] = useState(false);
+  const [mobileVideoLoaded, setMobileVideoLoaded] = useState(false);
 
   useEffect(() => {
     // GSAP Timeline for entrance animations
@@ -105,7 +108,7 @@ export default function HeroSection() {
                   className={styles.buttons}
                 >
                   <a 
-                    href="//signup" 
+                    href="/register" 
                     className="btn-round"
                   >
                     <span>Register now</span>
@@ -133,13 +136,20 @@ export default function HeroSection() {
                 {/* Desktop Mockup with Video */}
                 <div className={styles.desktopMockup}>
                   <div className={styles.desktopScreen}>
+                    {!desktopVideoLoaded && (
+                      <div className={styles.videoLoader}>
+                        <div className={styles.loadingBar}></div>
+                      </div>
+                    )}
                     <video
                       ref={desktopVideoRef}
                       className={styles.desktopVideo}
                       muted
                       loop
                       playsInline
-                      preload="metadata"
+                      preload="none"
+                      onLoadedData={() => setDesktopVideoLoaded(true)}
+                      style={{ opacity: desktopVideoLoaded ? 1 : 0 }}
                     >
                       <source src="/dashboardvideo.mov" type="video/mp4" />
                       Your browser does not support the video tag.
@@ -150,13 +160,20 @@ export default function HeroSection() {
                 {/* Mobile Mockup with Video - positioned to overlap desktop */}
                 <div className={styles.mobileMockup}>
                   <div className={styles.mobileScreen}>
+                    {!mobileVideoLoaded && (
+                      <div className={styles.videoLoader}>
+                        <div className={styles.loadingBar}></div>
+                      </div>
+                    )}
                     <video
                       ref={mobileVideoRef}
                       className={styles.mobileVideo}
                       muted
                       loop
                       playsInline
-                      preload="metadata"
+                      preload="none"
+                      onLoadedData={() => setMobileVideoLoaded(true)}
+                      style={{ opacity: mobileVideoLoaded ? 1 : 0 }}
                     >
                       <source src="/mobile.mov" type="video/mp4" />
                       Your browser does not support the video tag.
@@ -169,7 +186,7 @@ export default function HeroSection() {
         </div>
 
         {/* Scroll Down Indicator - Positioned higher */}
-        <a 
+        {/* <a 
           ref={scrollDownRef}
           href="#about" 
           className={`${styles.scrollDown} text-muted-foreground hover:text-primary`}
@@ -178,7 +195,7 @@ export default function HeroSection() {
             <ArrowDown className="w-4 h-4" />
           </div>
           <span className={styles.scrollText}>Scroll Down</span>
-        </a>
+        </a> */}
       </div>
     </div>
   );

@@ -16,7 +16,44 @@
   background-size: cover;
 }
 
-@media (min-width: 768px) {
+/* Reduce background image height on small/mobile screens */
+@media (max-width: 479px) {
+  .heroSection {
+    /* show smaller background graphic and keep content tighter */
+    background-size: auto 45%;
+    background-position: center top;
+    min-height: 50vh;
+  }
+}
+
+/* Tablet portrait - reduce background */
+@media (min-width: 480px) and (max-width: 767px) {
+  .heroSection {
+    background-size: auto 55%;
+    background-position: center top;
+    min-height: 65vh;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .heroSection {
+    background-size: auto 70%;
+    background-position: center top;
+    min-height: 75vh;
+  }
+}
+
+/* Large tablets (iPad Pro landscape) */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .heroSection {
+    background-size: auto 65%;
+    background-position: center top;
+    min-height: 80vh;
+  }
+}
+
+@media (min-width: 1281px) {
   .heroSection {
     /* keep main hero image covering */
     background-size: cover;
@@ -57,10 +94,31 @@
   }
 }
 
+/* Tweak mockup size on very small screens so background appears shorter */
+@media (max-width: 479px) {
+  .mockupContainer {
+    height: 220px;
+    margin-top: -10px;
+  }
+
+  .desktopMockup {
+    margin-bottom: 20px;
+    max-width: 360px;
+  }
+
+  .mobileMockup {
+    bottom: 20px;
+    transform: translateY(10%);
+    max-width: 90px;
+    width: 28%;
+  }
+}
+
 @media (min-width: 480px) and (max-width: 639px) {
   .container {
     padding-top: 90px;
     padding-bottom: 60px;
+    
   }
 }
 
@@ -822,6 +880,52 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Video Loader & Loading Bar */
+.videoLoader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  z-index: 1;
+}
+
+.loadingBar {
+  width: 60%;
+  height: 4px;
+  background: rgba(94, 135, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loadingBar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, #5e87ff, #7a9fff);
+  border-radius: 2px;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.desktopVideo {
+  transition: opacity 0.3s ease-in-out;
 }
 
 /* Desktop Frame (optional if using mock2.jpg as frame) */

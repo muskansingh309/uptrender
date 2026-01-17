@@ -135,7 +135,7 @@ export default function FeaturesSection() {
               <div
                 className={`flex flex-col ${
                   feature.imagePosition === 'left' ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                } items-center gap-10 sm:gap-12 lg:gap-16 xl:gap-20 2xl:gap-24`}
+                } items-center gap-12 sm:gap-14 lg:gap-24 xl:gap-32 2xl:gap-34`}
               >
                 {/* Image Side */}
                 <div className="feature-mockup w-full lg:w-5/12 xl:w-2/5 flex items-center justify-center py-8">

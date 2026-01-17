@@ -5,6 +5,7 @@ import React, { useEffect, useRef } from "react";
 import { ArrowUp } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -122,9 +123,9 @@ export default function Footer() {
             <div className="footer-column">
               <h4 className="column-title">Legal &amp; Press</h4>
               <ul className="footer-links">
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms &amp; Conditions</a></li>
-                <li><a href="#">Presskit</a></li>
+                <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+                <li><Link href="/terms-conditions">Terms &amp; Conditions</Link></li>
+                <li><Link href="/refund-policy">Refund Policy</Link></li>
               </ul>
             </div>
           </div>
