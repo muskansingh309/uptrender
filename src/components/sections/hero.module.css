@@ -1,237 +1,155 @@
-/* Hero Section Styles */
+/* Hero Section - Responsive Design */
+
+/* ========================================
+   HERO SECTION WRAPPER
+   ======================================== */
 
 .heroSection {
   position: relative;
-  overflow: hidden;
   width: 100%;
-  max-width: 100vw;
-  background-color: #eceaea;
   min-height: 100vh;
-  box-sizing: border-box;
-  /* Single responsive background image (removed decorative SVG) */
+  background-color: #eceaea;
   background-image: url('/bg-uptrender.svg');
   background-repeat: no-repeat;
   background-position: center center;
-  /* make hero image cover viewport responsively */
   background-size: cover;
+  overflow: hidden;
 }
 
-/* Reduce background image height on small/mobile screens */
-@media (max-width: 479px) {
+/* Mobile: Reduce background visibility */
+@media (max-width: 767px) {
   .heroSection {
-    /* show smaller background graphic and keep content tighter */
-    background-size: auto 45%;
-    background-position: center top;
-    min-height: 50vh;
+    min-height: auto;
+    background-size: 200% auto;
+    background-position: center bottom;
   }
 }
 
-/* Tablet portrait - reduce background */
-@media (min-width: 480px) and (max-width: 767px) {
-  .heroSection {
-    background-size: auto 55%;
-    background-position: center top;
-    min-height: 65vh;
-  }
-}
-
-/* Tablet landscape */
+/* Tablet */
 @media (min-width: 768px) and (max-width: 1023px) {
   .heroSection {
-    background-size: auto 70%;
-    background-position: center top;
-    min-height: 75vh;
-  }
-}
-
-/* Large tablets (iPad Pro landscape) */
-@media (min-width: 1024px) and (max-width: 1280px) {
-  .heroSection {
-    background-size: auto 65%;
-    background-position: center top;
-    min-height: 80vh;
-  }
-}
-
-@media (min-width: 1281px) {
-  .heroSection {
-    /* keep main hero image covering */
-    background-size: cover;
-    background-position: center center;
+    min-height: 100vh;
   }
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  /* reduce opacity so background images remain visible */
   background-color: rgba(255, 255, 255, 0.35);
   z-index: 0;
   pointer-events: none;
 }
 
+/* ========================================
+   MAIN CONTAINER
+   ======================================== */
+
 .container {
   position: relative;
   z-index: 10;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 100px;
-  padding-bottom: 80px;
-  padding-left: 15px;
-  padding-right: 15px;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 100px 24px 60px;
 }
 
-/* Reduce large top spacing on small screens so hero CTA stays visible */
+/* Mobile */
 @media (max-width: 767px) {
   .container {
     min-height: auto;
+    padding: 100px 20px 40px;
     align-items: flex-start;
-    padding-top: 32px;
-    padding-bottom: 32px;
   }
 }
 
-/* Tweak mockup size on very small screens so background appears shorter */
-@media (max-width: 479px) {
-  .mockupContainer {
-    height: 220px;
-    margin-top: -10px;
-  }
-
-  .desktopMockup {
-    margin-bottom: 20px;
-    max-width: 360px;
-  }
-
-  .mobileMockup {
-    bottom: 20px;
-    transform: translateY(10%);
-    max-width: 90px;
-    width: 28%;
-  }
-}
-
-@media (min-width: 480px) and (max-width: 639px) {
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
   .container {
-    padding-top: 90px;
-    padding-bottom: 60px;
-    
+    padding: 120px 32px 60px;
   }
 }
 
-@media (min-width: 640px) and (max-width: 767px) {
-  .container {
-    padding-top: 100px;
-    padding-bottom: 80px;
-  }
-}
-
-@media (min-width: 640px) {
-  .container {
-    padding-top: 120px;
-    padding-bottom: 160px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
+/* Desktop */
 @media (min-width: 1024px) {
   .container {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 120px 48px 80px;
   }
 }
 
-@media (min-width: 1280px) {
+/* Large Desktop */
+@media (min-width: 1440px) {
   .container {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
-}
-
-@media (min-width: 1560px) {
-  .container {
-    padding-left: 80px;
-    padding-right: 80px;
-    max-width: 1400px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .container {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: 140px 64px 100px;
     max-width: 1600px;
   }
 }
 
+/* 4K */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1800px;
+    padding: 160px 80px 120px;
+  }
+}
+
 .content {
-  text-align: start;
   width: 100%;
 }
+
+/* ========================================
+   GRID LAYOUT
+   ======================================== */
 
 .grid {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  align-items: stretch;
+  gap: 40px;
+  width: 100%;
 }
 
-@media (min-width: 480px) {
-  .grid {
-    gap: 25px;
-  }
-}
-
-@media (min-width: 768px) {
-  .grid {
-    gap: 50px;
-  }
-}
-
+/* Desktop: Side by side layout */
 @media (min-width: 1024px) {
   .grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
     align-items: center;
   }
 }
 
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .grid {
+    grid-template-columns: 45% 55%;
+    gap: 80px;
+  }
+}
+
+/* 4K */
+@media (min-width: 1920px) {
+  .grid {
+    grid-template-columns: 42% 58%;
+    gap: 120px;
+  }
+}
+
+/* ========================================
+   LEFT COLUMN - TEXT CONTENT
+   ======================================== */
+
 .leftColumn {
   display: flex;
-  align-items: center;
-  margin-bottom: 0;
+  flex-direction: column;
+  justify-content: center;
   order: 1;
-}
-
-/* push hero text down on small screens */
-@media (max-width: 479px) {
-  .leftColumn {
-    padding-top: 70px;
-    align-items: flex-start;
-  }
-}
-
-@media (min-width: 480px) and (max-width: 767px) {
-  .leftColumn {
-    padding-top: 40px;
-    align-items: flex-start;
-  }
+  padding-bottom:50px;
 }
 
 @media (min-width: 1024px) {
   .leftColumn {
-    grid-column: span 5;
-    margin-bottom: 0;
     order: unset;
   }
 }
@@ -240,131 +158,119 @@
   display: block;
   margin-bottom: 16px;
   opacity: 0;
-  font-size: 10px;
+  font-size: 12px;
   color: #5e87ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 
-@media (min-width: 480px) {
-  .caption {
-    margin-bottom: 20px;
-    font-size: 11px;
-  }
-}
-
-@media (min-width: 640px) {
-  .caption {
-    margin-bottom: 12px;
-    font-size: 12px;
-  }
-}
-
+/* Heading */
 .heading {
-  font-size: 28px;
-  line-height: 1.15;
-  letter-spacing: -1px;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   margin-bottom: 20px;
   opacity: 0;
   color: #1e293b;
-}
-
-@media (min-width: 375px) {
-  .heading {
-    font-size: 32px;
-  }
+  font-weight: 500;
 }
 
 @media (min-width: 480px) {
   .heading {
-    font-size: 38px;
-    letter-spacing: -1.5px;
+    font-size: 40px;
     margin-bottom: 24px;
-  }
-}
-
-@media (min-width: 640px) {
-  .heading {
-    font-size: 48px;
-    margin-bottom: 28px;
   }
 }
 
 @media (min-width: 768px) {
   .heading {
-    font-size: 52px;
+    font-size: 48px;
   }
 }
 
 @media (min-width: 1024px) {
   .heading {
-    font-size: 56px;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
+    font-size: 52px;
+    margin-bottom: 28px;
   }
 }
 
 @media (min-width: 1280px) {
   .heading {
+    font-size: 58px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .heading {
     font-size: 64px;
-  }
-}
-
-.paragraph {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 28px;
-  max-width: 100%;
-  opacity: 0;
-  color: #1e293b;
-}
-
-@media (min-width: 480px) {
-  .paragraph {
-    font-size: 15px;
     margin-bottom: 32px;
-    max-width: 420px;
   }
 }
 
-@media (min-width: 640px) {
-  .paragraph {
-    font-size: 16px;
-    margin-bottom: 36px;
-    max-width: 450px;
+@media (min-width: 1920px) {
+  .heading {
+    font-size: 72px;
+    margin-bottom: 40px;
   }
+}
+
+/* Paragraph */
+.paragraph {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 500px;
+  opacity: 0;
+  color: #475569;
 }
 
 @media (min-width: 768px) {
   .paragraph {
     font-size: 17px;
-    margin-bottom: 40px;
-    max-width: 480px;
   }
 }
 
 @media (min-width: 1024px) {
   .paragraph {
     font-size: 18px;
+    margin-bottom: 36px;
   }
 }
 
+@media (min-width: 1440px) {
+  .paragraph {
+    font-size: 19px;
+    margin-bottom: 40px;
+    max-width: 520px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .paragraph {
+    font-size: 21px;
+    margin-bottom: 48px;
+    max-width: 580px;
+  }
+}
+
+/* Buttons */
 .buttons {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
   opacity: 0;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 768px) {
   .buttons {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
+    gap: 28px;
   }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   .buttons {
     gap: 32px;
   }
@@ -373,15 +279,15 @@
 .playButton {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
+  gap: 10px;
+  font-size: 14px;
   font-weight: 500;
   transition: color 0.3s;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .playButton {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
@@ -389,24 +295,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   border: 1px solid var(--color-border);
   transition: all 0.3s;
-}
-
-@media (min-width: 640px) {
-  .playIcon {
-    width: 26px;
-    height: 26px;
-  }
 }
 
 .playButton:hover .playIcon {
   background-color: var(--color-primary);
   color: white;
 }
+
+/* ========================================
+   RIGHT COLUMN - MOCKUPS
+   ======================================== */
 
 .rightColumn {
   display: flex;
@@ -416,126 +319,95 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
-  .rightColumn {
-    justify-content: flex-end;
-  }
-}
-
 @media (min-width: 1024px) {
   .rightColumn {
-    grid-column: span 7;
     order: unset;
+    justify-content: center;
   }
 }
 
 .imagesContainer {
   position: relative;
   width: 100%;
-  max-width: 100%;
   height: 280px;
 }
 
 /* ========================================
-   Device Mockup Styles - Video Display
+   MOCKUP CONTAINER
    ======================================== */
 
 .mockupContainer {
   position: relative;
   width: 100%;
-  max-width: 100%;
-  height: 300px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin-top: -30px;
+  max-width: 400px;
+  margin: 0 auto;
+  /* Height based on aspect ratio of desktop mockup + space for stand + mobile overlap */
+  aspect-ratio: 16 / 14;
 }
 
-@media (min-width: 375px) {
+/* Mobile */
+@media (max-width: 479px) {
   .mockupContainer {
-    height: 340px;
-    margin-top: -40px;
+    max-width: 320px;
   }
 }
 
-@media (min-width: 480px) {
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
   .mockupContainer {
-    height: 360px;
-    max-width: 420px;
-    margin-top: -40px;
+    max-width: 500px;
   }
 }
 
-@media (min-width: 640px) {
-  .mockupContainer {
-    height: 420px;
-    max-width: 480px;
-    margin-top: -50px;
-  }
-}
-
-@media (min-width: 768px) {
-  .mockupContainer {
-    height: 520px;
-    max-width: 100%;
-    margin-top: -140px;
-    width: 100%;
-    justify-content: flex-end;
-    padding-right: 20px;
-  }
-}
-
+/* Desktop */
 @media (min-width: 1024px) {
   .mockupContainer {
-    height: 560px;
-    margin-top: -160px;
-    width: 100%;
-    padding-right: 30px;
+    max-width: 520px;
   }
 }
 
+/* Large Desktop */
 @media (min-width: 1280px) {
   .mockupContainer {
-    height: 620px;
-    margin-top: -160px;
-    width: 100%;
-    padding-right: 40px;
+    max-width: 580px;
   }
 }
 
-@media (min-width: 1560px) {
+@media (min-width: 1440px) {
   .mockupContainer {
-    height: 680px;
-    padding-right: 60px;
+    max-width: 650px;
   }
 }
 
+/* 4K */
 @media (min-width: 1920px) {
   .mockupContainer {
-    height: 720px;
-    padding-right: 80px;
+    max-width: 780px;
   }
 }
 
-/* Desktop Mockup Container - White 3D MacBook Style */
+/* ========================================
+   DESKTOP MOCKUP - MacBook Style
+   ======================================== */
+
 .desktopMockup {
   position: relative;
   width: 85%;
-  max-width: 500px;
   aspect-ratio: 16 / 10;
   background: linear-gradient(145deg, #ffffff 0%, #f5f5f7 50%, #e8e8ed 100%);
   border-radius: 12px;
-  padding: 8px 8px 20px 8px;
+  padding: 8px;
+  padding-bottom:20px;
   box-shadow: 
     0 30px 60px -15px rgba(0, 0, 0, 0.25),
     0 0 0 1px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 1),
     inset 0 -1px 0 rgba(0, 0, 0, 0.05);
   z-index: 10;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
-/* Sleek Modern Stand - Thin neck */
+/* Stand Neck */
 .desktopMockup::after {
   content: '';
   position: absolute;
@@ -557,7 +429,7 @@
     2px 0 4px rgba(0, 0, 0, 0.08);
 }
 
-/* Stand Base - Modern curved base */
+/* Stand Base */
 .desktopMockup::before {
   content: '';
   position: absolute;
@@ -565,7 +437,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 35%;
-  height: 10px;
+  height: 12px;
   background: linear-gradient(180deg, 
     #e8e8ed 0%, 
     #d0d0d5 40%,
@@ -577,143 +449,66 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-@media (min-width: 375px) {
-  .desktopMockup {
-    border-radius: 14px;
-    padding: 10px 10px 22px 10px;
-    margin-bottom: 55px;
-  }
-  .desktopMockup::after {
-    bottom: -42px;
-    height: 42px;
-    width: 7%;
-  }
-  .desktopMockup::before {
-    bottom: -52px;
-    height: 11px;
-  }
-}
-
-@media (min-width: 480px) {
-  .desktopMockup {
-    width: 90%;
-    max-width: 420px;
-    border-radius: 14px;
-    padding: 10px 10px 24px 10px;
-    margin-bottom: 58px;
-  }
-  .desktopMockup::after {
-    bottom: -45px;
-    height: 45px;
-    width: 6%;
-  }
-  .desktopMockup::before {
-    bottom: -56px;
-    height: 12px;
-  }
-}
-
-@media (min-width: 640px) {
-  .desktopMockup {
-    max-width: 480px;
-    border-radius: 16px;
-    padding: 12px 12px 26px 12px;
-    margin-bottom: 62px;
-  }
-  .desktopMockup::after {
-    bottom: -48px;
-    height: 48px;
-    width: 6%;
-  }
-  .desktopMockup::before {
-    bottom: -60px;
-    height: 13px;
-  }
-}
-
+/* Tablet and up - larger mockup */
 @media (min-width: 768px) {
   .desktopMockup {
-    max-width: 520px;
     border-radius: 16px;
-    padding: 12px 12px 28px 12px;
-    margin-bottom: 65px;
+    padding: 12px;
+    padding-bottom: 28px;
+    margin-bottom: 60px;
   }
+
   .desktopMockup::after {
-    bottom: -50px;
-    height: 50px;
-    width: 5%;
+    bottom: -55px;
+    height: 55px;
+    width: 6%;
   }
+
   .desktopMockup::before {
-    bottom: -62px;
+    bottom: -68px;
     height: 14px;
   }
 }
 
-@media (min-width: 1024px) {
+/* Large Desktop */
+@media (min-width: 1440px) {
   .desktopMockup {
-    max-width: 560px;
-    padding: 14px 14px 30px 14px;
+    padding: 14px;
+    padding-bottom: 32px;
     margin-bottom: 70px;
   }
-  .desktopMockup::after {
-    bottom: -55px;
-    height: 55px;
-    width: 5%;
-  }
-  .desktopMockup::before {
-    bottom: -68px;
-    height: 15px;
-  }
-}
 
-@media (min-width: 1280px) {
-  .desktopMockup {
-    max-width: 620px;
-    padding: 14px 14px 32px 14px;
-    margin-bottom: 75px;
-  }
-  .desktopMockup::after {
-    bottom: -60px;
-    height: 60px;
-    width: 5%;
-  }
-  .desktopMockup::before {
-    bottom: -74px;
-    height: 16px;
-  }
-}
-
-@media (min-width: 1560px) {
-  .desktopMockup {
-    max-width: 700px;
-    margin-bottom: 80px;
-  }
   .desktopMockup::after {
     bottom: -65px;
     height: 65px;
   }
+
   .desktopMockup::before {
     bottom: -80px;
-    height: 17px;
+    height: 16px;
   }
 }
 
+/* 4K */
 @media (min-width: 1920px) {
   .desktopMockup {
-    max-width: 780px;
-    margin-bottom: 85px;
+    padding: 16px;
+    padding-bottom: 36px;
+    margin-bottom: 80px;
   }
+
   .desktopMockup::after {
-    bottom: -70px;
-    height: 70px;
+    bottom: -75px;
+    height: 75px;
   }
+
   .desktopMockup::before {
-    bottom: -86px;
+    bottom: -92px;
     height: 18px;
   }
 }
 
-/* Desktop screen area */
+/* Desktop Screen */
 .desktopScreen {
   position: relative;
   width: 100%;
@@ -721,12 +516,6 @@
   border-radius: 6px;
   overflow: hidden;
   background: #f2efef;
-}
-
-@media (min-width: 480px) {
-  .desktopScreen {
-    border-radius: 8px;
-  }
 }
 
 @media (min-width: 768px) {
@@ -743,110 +532,66 @@
   display: block;
 }
 
-/* Mobile Mockup Container - White 3D iPhone Style */
+/* ========================================
+   MOBILE MOCKUP - iPhone Style
+   ======================================== */
+
 .mobileMockup {
   position: absolute;
   right: 0;
-  bottom: 50px;
+  bottom: 0;
   width: 28%;
-  max-width: 100px;
+  max-width: 110px;
   aspect-ratio: 9 / 19;
   background: linear-gradient(145deg, #ffffff 0%, #f5f5f7 50%, #e8e8ed 100%);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 4px;
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 1);
   z-index: 20;
-  transform: translateY(25%);
+  transform: translateY(-10%);
 }
 
-@media (min-width: 375px) {
-  .mobileMockup {
-    right: 0;
-    bottom: 55px;
-    width: 30%;
-    max-width: 110px;
-    border-radius: 18px;
-    padding: 4px;
-  }
-}
-
-@media (min-width: 480px) {
-  .mobileMockup {
-    right: 0;
-    bottom: 58px;
-    width: 28%;
-    max-width: 120px;
-    border-radius: 20px;
-    padding: 5px;
-  }
-}
-
-@media (min-width: 640px) {
-  .mobileMockup {
-    right: 0;
-    bottom: 62px;
-    width: 26%;
-    max-width: 130px;
-    border-radius: 24px;
-    padding: 5px;
-  }
-}
-
+/* Tablet */
 @media (min-width: 768px) {
   .mobileMockup {
-    right: 5px;
-    bottom: 65px;
-    width: 24%;
     max-width: 140px;
+    border-radius: 24px;
+    padding: 5px;
+    transform: translateY(-5%);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .mobileMockup {
+    max-width: 150px;
     border-radius: 28px;
     padding: 6px;
   }
 }
 
-@media (min-width: 1024px) {
+/* Large Desktop */
+@media (min-width: 1440px) {
   .mobileMockup {
-    right: 10px;
-    bottom: 70px;
-    width: 22%;
-    max-width: 150px;
+    max-width: 170px;
     border-radius: 32px;
-    padding: 6px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .mobileMockup {
-    right: 15px;
-    bottom: 75px;
-    width: 20%;
-    max-width: 160px;
-    border-radius: 36px;
     padding: 7px;
   }
 }
 
-@media (min-width: 1560px) {
-  .mobileMockup {
-    right: 30px;
-    bottom: 80px;
-    width: 18%;
-    max-width: 170px;
-  }
-}
-
+/* 4K */
 @media (min-width: 1920px) {
   .mobileMockup {
-    right: 50px;
-    bottom: 85px;
-    width: 16%;
-    max-width: 180px;
+    max-width: 200px;
+    border-radius: 36px;
+    padding: 8px;
   }
 }
 
-/* Mobile Screen Area */
+/* Mobile Screen */
 .mobileScreen {
   position: relative;
   width: 100%;
@@ -856,12 +601,6 @@
   background: #fffefe;
 }
 
-@media (min-width: 480px) {
-  .mobileScreen {
-    border-radius: 14px;
-  }
-}
-
 @media (min-width: 768px) {
   .mobileScreen {
     border-radius: 20px;
@@ -870,7 +609,13 @@
 
 @media (min-width: 1024px) {
   .mobileScreen {
-    border-radius: 24px;
+    border-radius: 22px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .mobileScreen {
+    border-radius: 26px;
   }
 }
 
@@ -880,10 +625,12 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: opacity 0.3s ease-in-out;
 }
 
-/* Video Loader with Dots */
+/* ========================================
+   VIDEO LOADER
+   ======================================== */
+
 .videoLoader {
   position: absolute;
   inset: 0;
@@ -931,11 +678,7 @@
   }
 }
 
-.desktopVideo {
-  transition: opacity 0.3s ease-in-out;
-}
-
-/* Desktop Frame (optional if using mock2.jpg as frame) */
+/* Desktop Frame (optional) */
 .desktopFrame {
   position: absolute;
   inset: 0;
@@ -943,34 +686,39 @@
   z-index: 5;
 }
 
+/* ========================================
+   SCROLL DOWN INDICATOR
+   ======================================== */
+
 .scrollDown {
   position: absolute;
-  bottom: 30px;
-  left: 15px;
+  bottom: 40px;
+  left: 24px;
   display: none;
   align-items: center;
   gap: 12px;
   transition: color 0.3s;
 }
 
-@media (min-width: 480px) {
-  .scrollDown {
-    display: flex;
-    bottom: 40px;
-  }
-}
-
-@media (min-width: 640px) {
-  .scrollDown {
-    bottom: 60px;
-    left: 20px;
-  }
-}
-
 @media (min-width: 768px) {
   .scrollDown {
+    display: flex;
+    left: 32px;
+    bottom: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .scrollDown {
+    left: 48px;
+    bottom: 60px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .scrollDown {
+    left: 64px;
     bottom: 80px;
-    left: calc((100% - 1140px) / 2 + 15px);
   }
 }
 
@@ -978,162 +726,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 1px solid var(--color-border);
 }
 
-@media (min-width: 640px) {
-  .scrollIcon {
-    width: 36px;
-    height: 36px;
-  }
-}
-
 .scrollText {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #5e87ff;
-}
-
-@media (min-width: 640px) {
-  .scrollText {
-    font-size: 12px;
-  }
-}
-
-/* Additional responsive spacing for mid-to-large screens so mockups never touch edges */
-
-/* 1080px - 1279px */
-@media (min-width: 1080px) and (max-width: 1279px) {
-  .container {
-    padding-left: 50px;
-    padding-right: 50px;
-    max-width: none;
-  }
-
-  .mockupContainer {
-    padding-right: 100px;
-    max-width: 900px;
-  }
-
-  .mobileMockup {
-    right: 50px !important;
-  }
-
-  .heroSection {
-    background-position: center center;
-    background-size: cover;
-  }
-}
-
-/* 1280px - 1350px - critical range where mockups touch edge */
-@media (min-width: 1280px) and (max-width: 1350px) {
-  .container {
-    padding-left: 80px;
-    padding-right: 80px;
-    max-width: none;
-  }
-
-  .mockupContainer {
-    padding-right: 150px;
-    max-width: 950px;
-  }
-
-  .mobileMockup {
-    right: 80px !important;
-  }
-
-  .desktopMockup {
-    max-width: 550px;
-  }
-
-  .heroSection {
-    background-position: center center;
-    background-size: cover;
-  }
-}
-
-/* 1351px - 1535px */
-@media (min-width: 1351px) and (max-width: 1535px) {
-  .container {
-    padding-left: 70px;
-    padding-right: 70px;
-    max-width: none;
-  }
-
-  .mockupContainer {
-    padding-right: 130px;
-    max-width: 1000px;
-  }
-
-  .mobileMockup {
-    right: 70px !important;
-  }
-
-  .desktopMockup {
-    max-width: 600px;
-  }
-
-  .heroSection {
-    background-position: center center;
-    background-size: cover;
-  }
-}
-
-/* 1536px - 1645px - critical range where mockups touch edge */
-@media (min-width: 1536px) and (max-width: 1645px) {
-  .container {
-    padding-left: 100px;
-    padding-right: 100px;
-    max-width: none;
-  }
-
-  .mockupContainer {
-    padding-right: 180px;
-    max-width: 1100px;
-  }
-
-  .mobileMockup {
-    right: 100px !important;
-  }
-
-  .desktopMockup {
-    max-width: 620px;
-  }
-
-  .heroSection {
-    background-position: center center;
-    background-size: cover;
-  }
-}
-
-/* 1646px and above */
-@media (min-width: 1646px) {
-  .container {
-    padding-left: 120px;
-    padding-right: 120px;
-    max-width: 1500px;
-  }
-
-  .mockupContainer {
-    padding-right: 200px;
-    max-width: 1300px;
-  }
-
-  .mobileMockup {
-    right: 120px !important;
-  }
-
-  .desktopMockup {
-    max-width: 700px;
-  }
-
-  .heroSection {
-    background-position: center center;
-    background-size: cover;
-  }
 }

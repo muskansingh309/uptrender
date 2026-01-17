@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function BlogNavbar() {
   return (
@@ -8,10 +9,13 @@ export default function BlogNavbar() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-[#5e87ff] to-[#5e87ff] rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">U</span>
-          </div>
-          <span className="text-xl font-semibold text-[#1e293b]">Uptrender</span>
+          <Image
+            src="/web-logo.png"
+            alt="Uptrender Logo"
+            width={100}
+            height={100}
+          className="w-auto h-15 sm:h-19 lg:h-23"
+          />
         </Link>
 
         {/* Sign In Button */}

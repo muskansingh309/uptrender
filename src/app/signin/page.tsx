@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
 
 export default function SignInPage() {
@@ -67,14 +68,14 @@ export default function SignInPage() {
         </div>
         
         <div className="relative z-10 flex flex-col justify-center px-12 xl:px-20">
-          <Link href="/" className="flex items-center gap-3 mb-12">
-            <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M17 7H21V11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <span className="text-2xl font-bold text-white">Uptrender</span>
+          <Link href="/" className="flex items-center gap-3 mb-0">
+            <Image
+              src="/web-logo.png"
+              alt="Uptrender Logo"
+              width={100}
+              height={100}
+              className="w-auto h-24 xl:h-28 brightness-0 invert"
+            />
           </Link>
           
           <h2 className="text-4xl xl:text-5xl font-bold text-white leading-tight mb-6">
@@ -91,15 +92,13 @@ export default function SignInPage() {
         <div className="w-full max-w-[420px]">
           {/* Mobile Logo */}
           <Link href="/" className="signin-logo flex items-center gap-2 mb-10 lg:hidden">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#5e87ff] to-[#5e87ff] rounded-xl flex items-center justify-center shadow-lg">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M17 7H21V11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <span className="text-xl font-bold text-[#1e293b]">
-              <span className="text-[#5e87ff]">Up</span>trender
-            </span>
+            <Image
+              src="/web-logo.png"
+              alt="Uptrender Logo"
+              width={300}
+              height={75}
+              className="w-auto h-12"
+            />
           </Link>
 
           <h1 className="signin-title text-[28px] sm:text-[32px] font-semibold text-[#111] mb-2">

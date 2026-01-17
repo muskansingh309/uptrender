@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-// logo replaced with text logo
+import Image from "next/image";
 import { ArrowUp } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -65,14 +65,13 @@ export default function Footer() {
             {/* Brand Column */}
             <div className="footer-brand">
                 <div className="footer-logo">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-gradient-to-br from-[#5e87ff] to-[#5e87ff] rounded-lg flex items-center justify-center shadow-sm">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <span className="text-[18px] font-semibold text-[#1e293b]">Uptrender</span>
-                  </div>
+                  <Image
+                    src="/web-logo.png"
+                    alt="Uptrender Logo"
+                    width={400}
+                    height={100}
+                    className="w-auto h-12 sm:h-14 lg:h-16"
+                  />
                 </div>
               <p className="footer-description">
                India’s First Multi-Market AI-Powered Algo Trading Dashboard for Indian, Forex & Crypto Markets.

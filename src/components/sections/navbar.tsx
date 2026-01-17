@@ -65,16 +65,14 @@ export default function Navbar() {
         {/* Logo Section */}
         <div className="flex-shrink-0">
           <a href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 bg-[#5e87ff] rounded-lg lg:rounded-xl flex items-center justify-center shadow-lg">
-              <svg width="18" height="18" className="sm:w-[20px] sm:h-[20px] lg:w-[24px] lg:h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 17L9 11L13 15L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M17 7H21V11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <span className="text-[18px] sm:text-[20px] lg:text-[22px] font-bold tracking-tight text-[#1e293b]">
-              <span className="text-[#5e87ff]">Up</span>
-              <span className="text-[#1e293b]">trender</span>
-            </span>
+            <Image
+              src="/web-logo.png"
+              alt="Uptrender Logo"
+              width={600}
+              height={100}
+              className="w-auto h-20 sm:h-22 lg:h-25"
+              priority
+            />
           </a>
         </div>
 
