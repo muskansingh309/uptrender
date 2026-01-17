@@ -883,7 +883,7 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Video Loader & Loading Bar */
+/* Video Loader with Dots */
 .videoLoader {
   position: absolute;
   inset: 0;
@@ -894,33 +894,40 @@
   z-index: 1;
 }
 
-.loadingBar {
-  width: 60%;
-  height: 4px;
-  background: rgba(94, 135, 255, 0.2);
-  border-radius: 2px;
-  overflow: hidden;
-  position: relative;
+.loadingDots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-.loadingBar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 40%;
-  background: linear-gradient(90deg, #5e87ff, #7a9fff);
-  border-radius: 2px;
-  animation: loading 1.5s ease-in-out infinite;
+.loadingDots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5e87ff;
+  animation: dotPulse 1.4s ease-in-out infinite;
 }
 
-@keyframes loading {
-  0% {
-    left: -40%;
+.loadingDots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loadingDots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loadingDots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotPulse {
+  0%, 60%, 100% {
+    transform: scale(1);
+    opacity: 1;
   }
-  100% {
-    left: 100%;
+  30% {
+    transform: scale(1.5);
+    opacity: 0.7;
   }
 }
 
