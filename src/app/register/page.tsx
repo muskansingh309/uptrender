@@ -75,7 +75,7 @@ export default function SignUpPage() {
         </div>
         
         <div className="relative z-10 flex flex-col justify-center px-12 xl:px-20">
-          <Link href="/" className="flex items-center gap-3 mb-0">
+          <Link href="/" className="flex items-center gap-3 ">
             <Image
               src="/web-logo.png"
               alt="Uptrender Logo"

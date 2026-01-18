@@ -164,7 +164,7 @@ export default function BlogPage() {
     <div className="min-h-screen bg-white overflow-x-hidden">
       <BlogNavbar />
 
-      <section className="pt-[100px] sm:pt-[120px] pb-[60px] sm:pb-[80px] px-4 sm:px-6 lg:px-8">
+      <section className="pt-[60px] sm:pt-[80px] pb-[50px] sm:pb-[70px] px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             

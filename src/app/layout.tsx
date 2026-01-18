@@ -8,7 +8,11 @@ export const metadata: Metadata = {
   title: "Uptrender - AI-Powered Algo Trading Dashboard",
   description: "India's First Multi-Market AI-Powered Algo Trading Dashboard for Indian, Forex & Crypto Markets",
   icons: {
-    icon: '/browser-logo.png',
+    icon: [
+      { url: '/browser-logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/browser-logo.png', sizes: '48x48', type: 'image/png' },
+      { url: '/browser-logo.svg', type: 'image/svg+xml' },
+    ],
   },
 };
 
